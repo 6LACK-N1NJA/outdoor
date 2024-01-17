@@ -1,0 +1,18 @@
+@config "./tailwind/site.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './prism.css';
+
+html {
+  scroll-padding-top: 80px;
+}
+
+h5 {
+  font-size: 1.25 rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
