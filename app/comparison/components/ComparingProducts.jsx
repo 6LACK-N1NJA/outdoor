@@ -11,13 +11,13 @@ export default function ComparingProducts({ products }) {
   if (!products[0].modelName) return <Spinner />
   return (
     <section >
-    <div className='flex mt-5'>
+    <div className='flex flex-row align-middle mt-4 mb-5'>
         <h2 className='text-2xl'>Selected products</h2>
         <KnowMore>
             Here is the text of measurements and charts 
         </KnowMore>
     </div>
-    <div className="flex">
+    <div className="flex flex-row align-middle justify-around">
        {selectedProducts.map((product) => (
            <ProductCard key={product.modelName} product={product} />
        ))}

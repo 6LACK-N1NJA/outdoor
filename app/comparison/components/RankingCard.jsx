@@ -2,9 +2,9 @@ import RankingRow from './RankingRow'
 
 export default async function RankingCard({ products, rankedBy, ulClass }) {
   return (
-    <article>
-      <h3 className=" text-lg text-center mt-2">{`Top-10 ${rankedBy}`}</h3>
-      <ul className={ulClass}>
+    <article className='grow'>
+      <h3 className=" text-lg text-center my-4">{`Top-10 ${rankedBy}`}</h3>
+      <ul className={`border-gray-100 ${ulClass}`}>
         {products.map((product, index) => (
           <RankingRow key={`${index} rank`} product={product} index={index} />
         ))}

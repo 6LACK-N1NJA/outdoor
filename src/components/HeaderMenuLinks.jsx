@@ -18,14 +18,12 @@ export default function HeaderMenuLinks({ menuLinks, navClass, ulClass }) {
               >
                 <div
                   className={
-                    isComparison
-                      ? 'mx-3 rounded border-solid border-cyan-700 bg-orange-400 hover:bg-orange-600'
-                      : ''
+                    `block p-2 font-medium text-gray-900 ${isComparison
+                      ? ' px-3 shadow-xl mx-3 rounded bg-opacity-80 bg-lime-400 hover:bg-orange-700 hover:shadow-md transition delay-20 duration-150 ease-in-out  hover:text-slate-200'
+                      : ' hover:text-slate-700 hover:opacity-90'}`
                   }
                 >
-                  <div className="block p-2 font-medium text-gray-900 hover:opacity-75">
                     {menuLink.title}
-                  </div>
                 </div>
               </Link>
             </li>

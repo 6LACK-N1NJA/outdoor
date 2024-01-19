@@ -16,7 +16,7 @@ const headerMenuLinks = [
   },
 
   {
-    title: 'Gear comparison',
+    title: '🔥 Gear Comparison 🔥',
     href: '/comparison',
     external: false,
   },

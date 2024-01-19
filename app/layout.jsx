@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
         <Header />
         {/* <HeaderBanner /> */}
         <main className="bg-white">
-          <Container classNames="">{children}</Container>
+          <Container>{children}</Container>
         </main>
         <Footer />
       </body>

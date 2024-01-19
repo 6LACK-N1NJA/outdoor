@@ -11,9 +11,9 @@ export default function RankingRow({ product, index, classString }) {
   }
   return (
     <li
-      className={`${
-        isSelected ? ' bg-lime-100 ' : 'hover:bg-pink-100'
-      } border-b-2 p-4 hover:cursor-pointer`}
+      className={`${index === 0 && 'font-bold'} ${
+        isSelected ? ' bg-lime-100 hover:bg-opacity-50' : 'hover:bg-orange-200'
+      } border-b-2 border-gray-100 py-4 px-6 hover:cursor-pointer`}
       onClick={clickHandler}
     >
       {`${index + 1}. ${product.brand} - ${product.modelName}`}

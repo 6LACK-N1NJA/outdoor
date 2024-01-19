@@ -3,14 +3,14 @@ import KnowMore from './KnowMore'
 
 export default function ProductsRanking({ products }) {
   return (
-    <section className="  my-8">
-        <div className='flex flex-wrap align-baseline'>
-        <h2 className="text-2xl">Product top ranks</h2>
-        <KnowMore>
-            Here is the text of how I calculated top ranks
-        </KnowMore>
+    <section className="my-10">
+        <div className='my-3 flex flex-wrap align-baseline'>
+            <h2 className="text-2xl">Product top ranks</h2>
+            <KnowMore>
+                Here is the text of how I calculated top ranks
+            </KnowMore>
         </div>
-      <div className="first-child:border-l-2 flex">
+      <div className="flex flex-row">
         <RankingCard
           ulClass={'border-r-2'}
           products={products

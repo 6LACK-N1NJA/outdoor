@@ -1,10 +1,10 @@
-import Filters from './components/Filters'
-import ComparingProducts from './components/ComparingProducts'
-import ProductsRanking from './components/ProductsRanking'
+import Filters from '../components/Filters'
+import ComparingProducts from '../components/ComparingProducts'
+import ProductsRanking from '../components/ProductsRanking'
 import { getComparisonConfing } from '@/api/strapiCalls'
 import { getProductList } from '@/api/productsService'
-import SelectedProductsProvider from './components/SelectedProductsProvider'
-import calculateRaitingRatio from './utils/calculateRaitingRatio'
+import SelectedProductsProvider from '../components/SelectedProductsProvider'
+import calculateRaitingRatio from '../utils/calculateRaitingRatio'
 import { uniq } from 'lodash'
 
 export default async function Page({ params }) {
@@ -13,6 +13,7 @@ export default async function Page({ params }) {
   const max = { ratio: 0, features: 0, screen: 0 }
   const emoji = '🧭';
   const filters = uniq(products.map(({ mapType }) => mapType))
+  // Map products to have all fields that are needed for showing data
   const mappedProducts = products.map((product) => {
     const { reviewsNumber, rating, specialFeaturesNumber, screenSizeInches } = product
     const ratingRatio = calculateRaitingRatio(Number(rating), Number(reviewsNumber))
