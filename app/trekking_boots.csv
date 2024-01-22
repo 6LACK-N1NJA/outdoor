@@ -1,0 +1,51 @@
+modelName,brand,rating,reviewsNumber,priceUsd,gender,soleMaterial,shaftHeight,outerMaterial,waterproof,feature,link,image
+Mt Maddsen,Timberland,4.4,1640,82,female,Rubber,Ankle,Leather,TRUE,,https://amzn.to/48AgB4I,https://m.media-amazon.com/images/I/81QD+b-jB9L._AC_SX695_.jpg
+Pioneer,Northside,4.3,339,49.9,female,Rubber,Ankle,Suede,FALSE,,https://amzn.to/3S41VU9,https://m.media-amazon.com/images/I/819qFdjQdrL._AC_SY695_.jpg
+Truckee,The North Face,4.5,488,108.95,female,Rubber,Ankle,Mixed-material ,FALSE,,https://amzn.to/425cwmk,https://m.media-amazon.com/images/I/71ReGRKTnzL._AC_SY695_.jpg
+Terradora 2,KEEN,4.3,1419,120.1,female,Rubber,Ankle,"Textile, Synthetic",TRUE,,https://amzn.to/4aU9MfT,https://m.media-amazon.com/images/I/61GAEkX84AL._AC_SX575_.jpg
+Pyrenees,KEEN,4.5,1031,152.21,female,Rubber,Ankle,Leather,TRUE,,https://amzn.to/48Dndiv,https://m.media-amazon.com/images/I/71kuOEeCAlL._AC_SX575_.jpg
+Crestwood Mid,Columbia,4.4,1993,62.25,female,Rubber,Ankle,Mixed-material ,TRUE,,https://amzn.to/423Ir6T,https://m.media-amazon.com/images/I/71nQxUgjozL._AC_SY695_.jpg
+Moab 3,Merrell,4.6,978,83.48,female,Rubber,Ankle,Mixed-material ,TRUE,,https://amzn.to/48ZoSiu,https://m.media-amazon.com/images/I/71WnRPhbayL._AC_SY695_.jpg
+Hiking Boots,NORTIV 8,4.4,2294,41.99,female,Rubber,Ankle,Suede,TRUE,,https://amzn.to/47D14zF,https://m.media-amazon.com/images/I/813bHz88axL._AC_SY695_.jpg
+Backpacking Mountaineering,NORTIV 8,4.6,179,43.99,female,Rubber,Ankle,Suede,TRUE,,https://amzn.to/3O5UFWO,https://m.media-amazon.com/images/I/81mqZ6Kl-KL._AC_SY695_.jpg
+Refugio Texapore,Jack Wolfskin,4.3,89,137.95,female,Rubber,Ankle,Suede,TRUE,,https://amzn.to/48UBaZe,https://m.media-amazon.com/images/I/61Kuu5De6jL._AC_SY695_.jpg
+Tibet GTX WS,Lowa,4,18,325.95,female,Vibram,Ankle,Leather,TRUE,,https://amzn.to/48z8Ls7,https://m.media-amazon.com/images/I/71ZUeJbXzXL._AC_SX695_.jpg
+Rigel,CMP,4.5,2255,123.99,female,Rubber,Ankle,Leather,FALSE,Protective strips made of Kevlar,https://amzn.to/3Sqg3sA,https://m.media-amazon.com/images/I/81XSpUt+byL._AC_SX575_.jpg
+Facet 45,Columbia,4,63,105.97,female,Rubber,Ankle,Rubber,TRUE,Ultralight,https://amzn.to/3tWyueK,https://m.media-amazon.com/images/I/8112i5HRzYL._AC_SX695_.jpg
+Explore,KEEN,4.5,10,121.2,female,Rubber,Calf,"Leather, Mesh upper",FALSE,,https://amzn.to/48Ya0ko,https://m.media-amazon.com/images/I/71zH8RPEh3L._AC_SX575_.jpg
+Rush Mid GTX,SCARPA,4.2,3,119.24,female,Rubber,Ankle,Synthetic,TRUE,Lightweight,https://amzn.to/424qgOz,https://m.media-amazon.com/images/I/61UiY6UosvL._AC_SY695_.jpg
+Kameng,Mishmi Takin,4.4,159,254.95,female,Rubber,Ankle,Suede,TRUE,"Quick drying, superb breathability",https://amzn.to/4b3NloG,https://m.media-amazon.com/images/I/81KOykqn53L._AC_SX695_.jpg
+Crow GTX,Salewa,4.6,383,279.95,female,Vibram,Ankle,"Nylon, Fiberglass",TRUE,,https://amzn.to/48AD4yA,https://m.media-amazon.com/images/I/61pp6l-blCL._AC_SY695_.jpg
+Nepal Cube,La Sportiva,3.6,5,648.95,female,Rubber,High Ankle,Rubber,TRUE,"Impact brake system, full-wrapp ruber rand",https://amzn.to/3SwF717,https://m.media-amazon.com/images/I/71lGHyJH9dL._AC_SY695_.jpg
+Rogue Hiker,Merrell,null,null,295.95,female,Rubber,Ankle,TPU,FALSE,Metal hook and eyelets,https://amzn.to/3O98Vhr,https://m.media-amazon.com/images/I/61j-9conU7L._AC_SY695_.jpg
+Cross,Salomon,4.6,491,196.95,female,Rubber,Ankle,Rubber,TRUE,Agile yet really grippy,https://amzn.to/3So3Lkq,https://m.media-amazon.com/images/I/71J+dGHPmWL._AC_SX695_.jpg
+Mountain Shoes,Alonepat,null,null,90.65,female,Rubber,Ankle,Rubber,TRUE,,https://amzn.to/47D4oe7,https://m.media-amazon.com/images/I/61Kv3PCNh3L._AC_SY575_.jpg
+Quest,Salomon,4.6,135,239.9,female,Rubber,Ankle,Mixed-material ,FALSE,Designed for long expeditions and tough conditions,https://amzn.to/48U8ZK0,https://m.media-amazon.com/images/I/81CPLumg0rL._AC_SX695_.jpg
+LT Assault 2,Oakley,4.6,5056,155,female,Rubber,High Ankle,Suede,TRUE,"Strong and abrasion-resistant, Braided lacing with metal eyelets",https://amzn.to/3O8ry54,https://m.media-amazon.com/images/I/71AN2YSuYPL._AC_SY695_.jpg
+Crestwood,Columbia,4.4,1750,69.95,female,Rubber,Calf,Leather,TRUE,,https://amzn.to/3SkzvH2,https://m.media-amazon.com/images/I/71ljXdloDzL._AC_SY695_.jpg
+Moab 2,Merrell,4.7,1631,130.95,female,Synthetic,Ankle,Leather,FALSE,Reinforced heel cushioning,https://amzn.to/4bbOevo,https://m.media-amazon.com/images/I/715iaaEp25L._AC_SY695_.jpg
+Trailstorm,Columbia,null,null,83.97,female,Rubber,Ankle,Rubber,TRUE,,https://amzn.to/3vEMfPT,https://m.media-amazon.com/images/I/61xEeHn398L._AC_SY695_.jpg
+Legacy 32,Rocky,4.6,25,82.5,female,"Vibram, Ethylene Vinyl Acetate",Ankle,Leather,TRUE,1 year guaranteed Rocky Vapor Pass waterproof technology ,https://amzn.to/3tVB5FW,https://m.media-amazon.com/images/I/71IoMP4rf+L._AC_SY695_.jpg
+Bridger,Oboz,4.4,483,179,female,Rubber,Ankle,Leather,TRUE,Nylon shank for stability and midfoot rigidity,https://amzn.to/3U2XFa6,https://m.media-amazon.com/images/I/6185dLiVL6L._AC_SY695_.jpg
+HaleStorm,Astral,4.4,26,139.95,female,"Ethylene Vinyl Acetate, Rubber",Ankle,"Hemp, Rubber",TRUE,"Breathable, extremely durable and comfortable",https://amzn.to/48WzEG5,https://m.media-amazon.com/images/I/71rhHR8LqOL._AC_SX575_.jpg
+Patch,Forsake,4.3,1072,159.95,female,Ethylene Vinyl Acetate,Ankle,"Leather, Suede, Nylon",TRUE,,https://amzn.to/3U6jKVy,https://m.media-amazon.com/images/I/81GthnUWvML._AC_SX695_.jpg
+Mountain Trainer Lite ,Salewa,4.3,419,219.95,female,Synthetic,Halbschaft,Synthetic,FALSE,Highly wear-resistant fabric,https://amzn.to/3HjEGkh,https://m.media-amazon.com/images/I/81tuVOwb+0L._AC_SX695_.jpg
+Targhee Vent,KEEN,4.4,474,131.95,female,Rubber,Ankle,Mixed-material ,FALSE,,https://amzn.to/3HmoYVl,https://m.media-amazon.com/images/I/71N5UqicCvL._AC_SY695_.jpg
+Grandview,Teva,4.4,132,175,female,Rubber,Ankle,"Leather, Synthetic",TRUE,Durability and sticky traction for wet and dry surfaces,https://amzn.to/3u0wMZV,https://m.media-amazon.com/images/I/71GkmhwArkL._AC_SX575_.jpg
+Nucleo High II,La Sportiva,4.8,12,239.9,female,"Ethylene Vinyl Acetate, Rubber",Ankle,"Leather, Ethylene Vinyl Acetate",TRUE,Comfort during long days on the trail,https://amzn.to/3SlNlc9,https://m.media-amazon.com/images/I/61AP+wKwE2L._AC_SY695_.jpg
+Trailstorm Ascend,Columbia,4.2,39,89.95,female,Rubber,Ankle,Mixed-material ,TRUE,"For prolonged exposure to moderate rain and snow, grip with strategically blended lug patterns",https://amzn.to/4b3Fzec,https://m.media-amazon.com/images/I/71CsT+CcfdL._AC_SY695_.jpg
+Talus AT UD,Vasque,4.4,203,170,female,"Ethylene Vinyl Acetate,TPU",,"Leather, Synthetic",TRUE,Solid footing across varying terrain with aggressive traction,https://amzn.to/3O8iayn,https://m.media-amazon.com/images/I/71QcpGtGi2L._AC_SX679_.jpg
+Yokota 2,Merrell,4.6,519,76.89,female,Rubber,Calf,Suede and textile,TRUE,,https://amzn.to/425CWVq,https://m.media-amazon.com/images/I/81arWdCAIHL._AC_SY695_.jpg
+High Rise,Merrell,4.5,77,99.95,female,Rubber,Ankle,Leather,TRUE,,https://amzn.to/48IFf3e,https://m.media-amazon.com/images/I/816A9j9f3FL._AC_SX575_.jpg
+Quest Element,Salomon,4.3,170,180.35,female,Rubber,Ankle,Mixed-material ,TRUE,Lightness and flexibility,https://amzn.to/3tTNGtf,https://m.media-amazon.com/images/I/71Xw+WdY2jL._AC_SX695_.jpg
+Trego Alpine,Skechers,4.5,5785,77.99,female,Rubber,Ankle,Mixed-material ,TRUE,,https://amzn.to/3vDfdQf,https://m.media-amazon.com/images/I/71bl30xH3XL._AC_SX695_.jpg
+Norwood,Timberland,4.5,3089,76.74,female,Rubber,Ankle,"Leather,Textile",TRUE,,https://amzn.to/4aZAP9o,https://m.media-amazon.com/images/I/815RNV29cnL._AC_SX679_.jpg
+Chocorua Trail,Timberland,4.5,1693,150,female,Rubber,Ankle,"Leather,Textile",TRUE,Designed for traction and the rugged good looks of a Timberland hiker,https://amzn.to/422HSKw,https://m.media-amazon.com/images/I/915092ledvL._AC_SX695_.jpg
+X Ultra Pioneer,Salomon,4.4,575,149.99,female,Rubber,Ankle,Leather,TRUE,Traditional lacing system with eyelets,https://amzn.to/47KBU1X,https://m.media-amazon.com/images/I/81S2tDUuSFL._AC_SX695_.jpg
+Nxis Evo,KEEN,4.3,413,179.2,female,Rubber,Calf,Synthetic,TRUE,4mm multi direction lugs provide optimal grip for sure footing in the most rugged terrain,https://amzn.to/3vCtgFA,https://m.media-amazon.com/images/I/81gVMMIt1ML._AC_SX575_.jpg
+Canyon Ii,ARIAT,4.5,1325,109.95,female,Rubber,Low-top,"Leather,Textile",FALSE,Soft premium full-grain leather,https://amzn.to/3SmWS2C,https://m.media-amazon.com/images/I/71bQ7XuG5oL._AC_SY695_.jpg
+White Ledge,Timberland,4.5,6447,69.99,female,Rubber,Ankle,Suede,FALSE,,https://amzn.to/4aXDJLZ,https://m.media-amazon.com/images/I/81EPT7baspL._AC_SX575_.jpg
+Moab 3,Merrell,4.8,159,13.18,female,Rubber,Calf,Mixed-material ,TRUE,,https://amzn.to/3tWnA8Q,https://m.media-amazon.com/images/I/61gadm-h2aL._AC_SX695_.jpg
+Newton Ridge Plus,Columbia,4.7,21571,74.99,female,Rubber,Ankle,"Suede, Rubber",TRUE,#1 Best Seller,https://amzn.to/3SmAhmQ,https://m.media-amazon.com/images/I/61Md8OAU4gL._AC_SY695_.jpg
+Targhee 2 ,KEEN,4.5,5071,154.95,female,Rubber,Ankle,Mixed-material ,TRUE,,https://amzn.to/4aY9yV0,https://m.media-amazon.com/images/I/719J5ZmnfFL._AC_SY695_.jpg
+Moab 2 Mid,Merrell,4.6,8909,115,female,Rubber,Calf,"Leather, Mesh upper",TRUE,Metal hook traditional lace closure,https://amzn.to/3S2PGHx,https://m.media-amazon.com/images/I/81sVzlroylL._AC_SX695_.jpg

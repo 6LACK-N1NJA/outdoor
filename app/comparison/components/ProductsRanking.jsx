@@ -1,7 +1,7 @@
 import RankingCard from './RankingCard'
 import KnowMore from './KnowMore'
 
-export default function ProductsRanking({ products }) {
+export default function ProductsRanking({ rankedProductList }) {
   return (
     <section className="my-10">
         <div className='my-3 flex flex-wrap align-baseline'>
@@ -11,37 +11,14 @@ export default function ProductsRanking({ products }) {
             </KnowMore>
         </div>
       <div className="flex flex-row">
-        <RankingCard
-          ulClass={'border-r-2'}
-          products={products
-            .sort(({ ratingRatio }, r) => (ratingRatio > r.ratingRatio ? -1 : 1))
-            .slice(0, 10)}
-          rankedBy={'Rating Ratio'}
-        />
-        <RankingCard
-          ulClass={'border-r-2'}
-          products={products
-            .sort(({ screenSizeInches }, r) =>
-              Number(screenSizeInches) > Number(r.screenSizeInches) ? -1 : 1
-            )
-            .slice(0, 10)}
-          rankedBy={'Screen Size'}
-        />
-        <RankingCard
-          products={products
-            .sort(({ priseUsd }, r) => (Number(priseUsd) > Number(r.priseUsd) ? 1 : -1))
-            .slice(0, 10)}
-          rankedBy={'Lowest Price'}
-          ulClass={'border-r-2'}
-        />
-        <RankingCard
-          products={products
-            .sort(({ specialFeaturesNumber }, r) =>
-              Number(specialFeaturesNumber) > Number(r.specialFeaturesNumber) ? -1 : 1
-            )
-            .slice(0, 10)}
-          rankedBy={'Special Features'}
-        />
+        {rankedProductList.map(({ products, title }, index) => (
+          <RankingCard
+            key={`rank_${title}_${index}`}
+            ulClass={index - 1 < rankedProductList.length && 'border-r-2'}
+            products={products}
+            rankedBy={title}
+          />
+        ))}
       </div>
     </section>
   )

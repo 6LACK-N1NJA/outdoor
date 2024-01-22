@@ -76,7 +76,9 @@ export default async function Page({ params }) {
               <>
                 {children.map(({ type, text, url, children }) => {
                   if (type === 'text') {
-                    return text
+                    return <React.Fragment key={text+url}>
+                      text
+                    </React.Fragment>
                   }
                   if (type === 'link') {
                     return (

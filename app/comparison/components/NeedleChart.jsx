@@ -32,8 +32,9 @@ const needle = (value, data, cx, cy, iR, oR, color) => {
   const yp = y0 + length * sin
 
   return [
-    <circle cx={x0} cy={y0} r={r} fill={color} stroke="none" />,
+    <circle key={`circ_${value}`} cx={x0} cy={y0} r={r} fill={color} stroke="none" />,
     <path
+      key={`path_${value}`}
       d={`M${xba} ${yba}L${xbb} ${ybb} L${xp} ${yp} L${xba} ${yba}`}
       stroke="#none"
       fill={color}
@@ -59,7 +60,9 @@ export default function NeedleChart({ value, title }) {
           opacity={0.8}
         >
           {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={entry.color} />
+            <React.Fragment key={`cell-${index}`}>
+                 <Cell fill={entry.color} />
+            </React.Fragment>
           ))}
         </Pie>
         {needle(value, data, cx, cy, iR, oR, '#d0d000')}

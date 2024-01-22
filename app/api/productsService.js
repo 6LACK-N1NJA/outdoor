@@ -23,13 +23,11 @@ const parseCSV = async (filePath) => {
   }
 }
 
-export async function getProductList(params) {
-  const { product } = params
-  const filePath = path.join(process.cwd(), 'app', 'trekking-gps-devices-1.csv')
+export async function getProductList(dataKey) {
+  const filePath = path.join(process.cwd(), 'app', dataKey || 'trekking_boots.csv')
   try {
     const data = await parseCSV(filePath)
-    console.log(data)
-    return data
+    return data;
   } catch (error) {
     console.error('Error parsing CSV file:', error)
   }

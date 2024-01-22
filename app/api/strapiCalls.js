@@ -65,15 +65,57 @@ export async function getPost(params) {
   }
 }
 
-export async function getComparisonConfing(params) {
+export async function getComparisonConfingList() {
   try {
-    const { product } = params
-    const post = await getAllPostsForSitemap()
+    const response = await (
+      await fetch(`${process.env.STRAPI_LOCAL}/comparisons?populate=*`)
+    ).json()
+    const configList = response.data;
     return {
-      post,
-      config: [],
+      configList,
     }
-  } catch {
-    notFound()
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+export async function getProductCardConfig(cardId) {
+  try {
+    const res = await (
+      await fetch(`${process.env.STRAPI_LOCAL}/comparison-product-card-configs/${cardId}?populate=*`)
+    ).json()
+    return res.data.attributes;
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+export async function getFiltersConfig(filterIds) {
+  try {
+    return await Promise.all(
+      filterIds.map(async (filterId) => {
+        const res = await (
+          await fetch(`${process.env.STRAPI_LOCAL}/comparison-filters-configs/${filterId}?populate=*`)
+        ).json()
+        return res.data.attributes;
+      })
+    )
+  } catch(e) {
+    console.error(e)
+  }
+}
+
+export async function getRankingConfig(rankingIds) {
+  try {
+    return await Promise.all(
+      rankingIds.map(async (id) => {
+        const res = await (
+          await fetch(`${process.env.STRAPI_LOCAL}/rankings/${id}?populate=*`)
+        ).json()
+        return res.data.attributes;
+      })
+    )
+  } catch(e) {
+    console.error(e)
   }
 }

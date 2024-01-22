@@ -9,13 +9,13 @@ import Script from 'next/script'
 import Container from '@component/Container'
 
 export const metadata = {
-  metadataBase: new URL('https://timetogetrich.online'),
+  metadataBase: new URL(process.env.CANONICAL_URL),
   title: 'Time To Get Rich',
   description: 'Blog about personal financial development, investments and financial freedom',
   openGraph: {
     title: 'Time To Get Rich',
     description: 'Blog about personal financial development, investments and financial freedom',
-    url: 'https://www.timetogetrich.online/',
+    url: process.env.CANONICAL_URL,
     siteName: 'Time To Get Rich',
     type: 'website',
   },
