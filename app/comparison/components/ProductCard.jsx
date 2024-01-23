@@ -13,7 +13,7 @@ export default function ProductCard({ product, productCardConfig }) {
         setSelecetedProducts(selectedProducts.filter(({ modelName }) => modelName !== product.modelName ))
     }
   return (
-    <article className="relative bg-stone-100 bg-opacity-0 rounded-3xl border-2 border-solid border-opacity-30 border-gray-300 p-6 shadow-xl bg-blend-lighten hover:bg-blend-darken flex flex-col flex-growth justify-around" >
+    <article className="relative bg-stone-100 bg-opacity-0 rounded-3xl border-2 border-solid border-opacity-30 border-gray-300 p-6 shadow-xl flex flex-col flex-growth justify-around" >
        <figure className=' overflow-hidden'>
         <Image className='object-contain z-0' src={product.image} fill alt={product.modelName} />
       </figure>
@@ -39,18 +39,13 @@ export default function ProductCard({ product, productCardConfig }) {
         </div>
       </figcaption>
       <figure className="flex text-sm text-center">
-        <NeedleChart
-          value={(product.ratingRatio * 180) / product.max?.ratingRatio}
-          title={'Rating Ratio'}
-        />
-        <NeedleChart
-          value={(product.screenSizeInches * 180) / product.max?.screenSizeInches}
-          title={'Scren size'}
-        />
-        <NeedleChart
-          value={(product.specialFeaturesNumber * 180) / product.max?.specialFeaturesNumber}
-          title={'Features'}
-        />
+        {productCardConfig.customPieCharts.map(({ fieldName, title }) => (
+          <NeedleChart
+            key={`pie_${fieldName}`}
+            value={product[fieldName] * 180 / product.max[fieldName]}
+            title={title}
+          />
+        ))}
       </figure>
       </div>
       </div>
