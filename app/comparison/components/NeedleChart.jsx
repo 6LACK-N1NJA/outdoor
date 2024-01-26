@@ -45,7 +45,7 @@ const needle = (value, data, cx, cy, iR, oR, color) => {
 export default function NeedleChart({ value, title }) {
   return (
     <figure className='m-2'>
-      <PieChart width={90} height={50}>
+      {/* <PieChart id={`chart_${title}`} width={90} height={50}>
         <Pie
           dataKey="value"
           startAngle={180}
@@ -61,12 +61,12 @@ export default function NeedleChart({ value, title }) {
         >
           {data.map((entry, index) => (
             <React.Fragment key={`cell-${index}`}>
-                 <Cell fill={entry.color} />
+                 <Cell fill={entry.color}></Cell>
             </React.Fragment>
           ))}
         </Pie>
         {needle(value, data, cx, cy, iR, oR, '#d0d000')}
-      </PieChart>
+      </PieChart> */}
       <h4 className='text-sm'>{title}</h4>
     </figure>
   )

@@ -5,7 +5,7 @@ import { getComparisonConfingList, getFiltersConfig, getProductCardConfig, getRa
 import { getProductList } from '@/api/productsService'
 import SelectedProductsProvider from '../components/SelectedProductsProvider'
 import calculateRaitingRatio from '../utils/calculateRaitingRatio'
-import { flatten, compact } from 'lodash'
+import { flatten } from 'lodash'
 import rankingRules from 'src/constants/rankingRules'
 
 export default async function Page({ params, searchParams }) {
@@ -33,27 +33,31 @@ export default async function Page({ params, searchParams }) {
     }
   })
   const filterGenericKeys = Object.keys(filters).filter((key) => filters[key].isGeneric);
-  // Filter fetched products with a query string 
-  const products = Object.keys(searchParams).length > 0 ? prod.filter((product) => {
-    Object.keys(searchParams).forEach((param) => {
-      if (typeof searchParams[param] === 'string') {
-        return product[param] === searchParams[param] ? true : false;
-      } else {
-        searchParams[param].forEach((value) => product[param] === value ? true : false)
-      }
-    })
-  }) : prod;
-  // Create object for max value for chart building
-  const max = {}
-  productCardConfig.customPieCharts?.forEach(({ fieldName }) => max[fieldName] = 0);
-  // Map products to have all fields that are needed for showing data
-  const mappedProducts = products.map((product) => {
-    // Fill filters here to avoid a lot of cycles. Maybe not the best idea, but let it be 
+  prod.forEach((product) => {
     filterGenericKeys.forEach((key) => {
       if (!filters[key].filterValues.includes(product[key])) {
         filters[key].filterValues.push(product[key])
       }
     })
+  });
+  // Filter fetched products with a query string and makeing splitted values for filtering selected fields
+  const splittedSearchParams = {};
+  const products = Object.keys(searchParams).length > 0 ? prod.filter((product) => {
+    let infiltered = false;
+    Object.keys(searchParams).forEach((param) => {
+      const splitted = searchParams[param].split(',');
+      splittedSearchParams[param] = splitted;
+      splitted.forEach((value) => product[param] === value && (infiltered = true)) 
+    })
+    return infiltered;
+  }) : prod;
+  // Filter selected fields from server to avoid doubling with search params
+  const filteredSelectedFields = selectedFields.filter(({ fieldName, selectedValue }) => !splittedSearchParams[fieldName]?.includes(selectedValue));
+  // Create object for max value for chart building
+  const max = {}
+  productCardConfig.customPieCharts?.forEach(({ fieldName }) => max[fieldName] = 0);
+  // Map products to have all fields that are needed for showing data
+  const mappedProducts = products.map((product) => {    
     const { reviewsNumber, rating } = product
     const ratingRatio = calculateRaitingRatio(Number(rating), Number(reviewsNumber))
     const updatedProduct = {
@@ -83,20 +87,18 @@ export default async function Page({ params, searchParams }) {
     return { title, slug, emoji }
   })
   //console.log('prdcts', mappedProducts)
-  console.log('conf', filters)
+  console.log('conf', filteredSelectedFields)
   return (
     <>
       <Filters 
         comparisonsList={comparisonsList} 
         filters={filters}
-        filtersConfig={mergedFiltersConfig} 
-        selectedFilters={selectedFields} 
+        selectedFields={filteredSelectedFields} 
         title={`${config.title} ${config.emoji}`}
+        searchParams={splittedSearchParams}
       />
       <SelectedProductsProvider 
-        initialState={compact(
-          [rankedProductList[0]?.products[0], rankedProductList[1]?.products[0], rankedProductList[2]?.products[0]]
-          )}
+        rankedProductList={rankedProductList}
       >
         <ComparingProducts products={mappedProducts} productCardConfig={productCardConfig} />
         <ProductsRanking rankedProductList={rankedProductList} />

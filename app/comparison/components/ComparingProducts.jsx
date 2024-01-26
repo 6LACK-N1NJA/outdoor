@@ -8,7 +8,7 @@ import KnowMore from './KnowMore'
 
 export default function ComparingProducts({ products, productCardConfig }) {
   const { selectedProducts } = useContext(SelectedProductsContext)
-  if (!products[0].modelName) return <Spinner />
+  if (!products[0]?.modelName) return <Spinner />
   return (
     <section >
     <div className='flex flex-row align-middle mt-4 mb-5'>
