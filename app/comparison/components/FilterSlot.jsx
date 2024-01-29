@@ -1,17 +1,38 @@
-export default function FilterSLot({ title, values, selectHandler, selectedValues }) {
-    console.log(selectedValues)
+'use client'
+
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
+
+export default function FilterSLot({ field, values, selectedValues }) {
+    const { replace } = useRouter();
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const params = new URLSearchParams(searchParams);
+    const selectHandler = (fieldName) => (value) => (e) => {
+        const { checked } = e.target;
+        const currentValues = params.getAll(fieldName)[0]?.split(',') || [];
+        if (checked) {
+          currentValues.push(value)
+          params.set(fieldName, currentValues);
+        } else {
+          const filteredValues = currentValues.filter((v) => v !== value);
+          params.delete(fieldName);
+          if (filteredValues.length > 0) {
+            params.set(fieldName, filteredValues);
+          }
+        }
+        replace(`${pathname}?${params.toString()}`);
+      }
     return(
-        <div className=" bg-amber-200  overflow-y-auto max-h-32 flex flex-col">
-            <h4>{title}</h4>
+        <>
             {values.map((value) => {
-                const name = `name_${value}`;
-                return(
-                <span key={`key_${name}`}>
-                    <input onChange={selectHandler(value)} checked={selectedValues?.includes(value)} type="checkbox" id={name} />
-                    <label htmlFor={name}>{value}</label>
-                </span>
-                )
-            })}
-        </div>
+                    const name = `name_${value}`;
+                    return(
+                        <span  key={`key_${name}`}>
+                            <input className=" cursor-pointer" onChange={selectHandler(field)(value)} checked={selectedValues?.includes(value)} type="checkbox" id={name} />
+                            <label className="cursor-pointer ml-2 mr-3" htmlFor={name}>{value}</label>
+                        </span>
+                    )
+                })}
+        </>
     )
 }

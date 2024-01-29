@@ -7,6 +7,8 @@ import SelectedProductsProvider from '../components/SelectedProductsProvider'
 import calculateRaitingRatio from '../utils/calculateRaitingRatio'
 import { flatten } from 'lodash'
 import rankingRules from 'src/constants/rankingRules'
+import ExpandedFilters from '../components/ExpandedFilters'
+import CollapsedFilters from '../components/CollapsedFilters'
 
 export default async function Page({ params, searchParams }) {
   const { configList } = await getComparisonConfingList();
@@ -16,7 +18,8 @@ export default async function Page({ params, searchParams }) {
       || configList[0]
     ).attributes;
   //if (!config) config = configList && configList[0].attributes
-  const { emoji, selectedFields } = config;
+  const { emoji, selectedFields, title, slug } = config;
+  const emoTitle = `${title} ${emoji}`;
   const productCardConfig = await getProductCardConfig(config.productCardConfig.data.id)
   const filtersConfig = await getFiltersConfig(config.filtersList.data.map(({ id }) => id))
   const mergedFiltersConfig = flatten(filtersConfig.map(({ filtersList }) => filtersList))
@@ -43,10 +46,12 @@ export default async function Page({ params, searchParams }) {
   // Filter fetched products with a query string and makeing splitted values for filtering selected fields
   const splittedSearchParams = {};
   const products = Object.keys(searchParams).length > 0 ? prod.filter((product) => {
-    let infiltered = false;
-    Object.keys(searchParams).forEach((param) => {
+    let infiltered;
+    Object.keys(searchParams).forEach((param, index) => {
       const splitted = searchParams[param].split(',');
       splittedSearchParams[param] = splitted;
+      if (index > 0 && infiltered === false) return;
+      infiltered = false;
       splitted.forEach((value) => product[param] === value && (infiltered = true)) 
     })
     return infiltered;
@@ -91,11 +96,23 @@ export default async function Page({ params, searchParams }) {
   return (
     <>
       <Filters 
-        comparisonsList={comparisonsList} 
         filters={filters}
         selectedFields={filteredSelectedFields} 
-        title={`${config.title} ${config.emoji}`}
-        searchParams={splittedSearchParams}
+        expandedFilters={
+            <ExpandedFilters 
+              comparisonsList={comparisonsList}
+              filters={filters}
+              selectedFields={filteredSelectedFields}
+              searchParams={splittedSearchParams}
+              slug={slug}
+              emoTitle={emoTitle}
+            />
+        }
+        collapsedFilters={
+          <CollapsedFilters
+              emoTitle={emoTitle}
+            />
+        }
       />
       <SelectedProductsProvider 
         rankedProductList={rankedProductList}

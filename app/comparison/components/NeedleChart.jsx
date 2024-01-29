@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell } from 'recharts'
 
 const RADIAN = Math.PI / 180
 const data = [
-  { name: 'Low', value: 75, color: '#FFB3B3' },
+  { name: 'Low', value: 75, color: 'salmon' },
   { name: 'Medium', value: 75, color: '#B3B3FF' },
   { name: 'High', value: 30, color: '	#B3FFB3' },
 ]
@@ -44,8 +44,8 @@ const needle = (value, data, cx, cy, iR, oR, color) => {
 
 export default function NeedleChart({ value, title }) {
   return (
-    <figure className='m-2'>
-      {/* <PieChart id={`chart_${title}`} width={90} height={50}>
+    <figure className='m-2 flex flex-col align-middle justify-center'>
+      <PieChart id={`chart_${title}`} width={90} height={50}>
         <Pie
           dataKey="value"
           startAngle={180}
@@ -55,9 +55,8 @@ export default function NeedleChart({ value, title }) {
           cy={cy}
           innerRadius={iR}
           outerRadius={oR}
-          fill="#8884d8"
+          fill="#B3FFB3"
           stroke="none"
-          opacity={0.8}
         >
           {data.map((entry, index) => (
             <React.Fragment key={`cell-${index}`}>
@@ -66,7 +65,7 @@ export default function NeedleChart({ value, title }) {
           ))}
         </Pie>
         {needle(value, data, cx, cy, iR, oR, '#d0d000')}
-      </PieChart> */}
+      </PieChart>
       <h4 className='text-sm'>{title}</h4>
     </figure>
   )

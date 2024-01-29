@@ -1,6 +1,7 @@
 'use server'
 
 import { notFound } from 'next/navigation'
+import 'server-only'
 
 const paginationSize = 6
 
@@ -75,7 +76,7 @@ export async function getComparisonConfingList() {
       configList,
     }
   } catch (e) {
-    console.log(e)
+    console.error(e)
   }
 }
 
