@@ -13,6 +13,7 @@ export const metadata = {
   metadataBase: new URL(process.env.CANONICAL_URL),
   title: `${SITE_NAME} | Trekking, Hiking, and Camping adventures`,
   description: 'Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails',
+  keywords: ['trekking', 'trekking-gear', 'trekking trails'],
   openGraph: {
     title: SITE_NAME,
     description: 'Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails',

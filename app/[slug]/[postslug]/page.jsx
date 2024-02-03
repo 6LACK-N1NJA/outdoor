@@ -11,14 +11,14 @@ export async function generateMetadata({ params }) {
   const { slug, postslug } = params
   const { blogData } = await getArticle(params)
   const { seo, cover } = blogData
-  if (!seo[0]) return
-  const { metaTitle, metaDescription, keywords } = seo[0]
+  if (!seo) return
+  const { metaTitle, metaDescription, keywords } = seo;
   return {
     title: `${metaTitle}`,
     description: metaDescription,
     keywords: keywords.split(', '),
-    creator: 'Dubby Rich',
-    authors: [{ name: 'Dubby Rich' }],
+    creator: 'Mykola Bludov',
+    authors: [{ name: 'Mykola Bludov' }],
     openGraph: {
       title: `${metaTitle}`,
       description: metaDescription,
