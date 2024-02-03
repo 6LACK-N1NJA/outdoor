@@ -102,6 +102,23 @@ export async function getArticle(params) {
   }
 }
 
+export async function getArticlesForSitemap() {
+  try {
+    const posts = await (
+      await fetch(`${process.env.STRAPI}/articles?populate=*`)
+    ).json()
+    const articles = posts.data.map(({ attributes }) => {
+      const postItem = attributes
+    const { slug, outdoor_activity_categories, updatedAt } = postItem;
+    const category = outdoor_activity_categories.data[0].attributes.slug;
+    return { link: `${category}/${slug}`, updatedAt };
+    })
+    return articles;
+  } catch {
+    notFound()
+  }
+}
+
 
 export async function getComparisonConfingList() {
   try {
@@ -156,4 +173,11 @@ export async function getRankingConfig(rankingIds) {
   } catch(e) {
     console.error(e)
   }
+}
+
+export async function getAllEntitiesForeSitemap() {
+  const { configList } = await getComparisonConfingList();
+  const articles = await getArticlesForSitemap();
+  const linkList = [ ...articles, ...configList.map(({ attributes }) => ({link: `gear-comparison/${attributes.slug}`, updatedAt: attributes.updatedAt}))]
+  return linkList;
 }

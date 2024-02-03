@@ -94,7 +94,7 @@ export default async function Page({ params, searchParams }) {
   const defaultTexts = config.defaultTexts.data?.attributes;
   const customTexts = config.customTexts.data?.attributes;
   //console.log('prdcts', mappedProducts)
-  console.log('conf', defaultTexts)
+  //console.log('conf', defaultTexts)
   return (
     <>
       <Filters 

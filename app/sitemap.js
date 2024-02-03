@@ -1,5 +1,5 @@
 import headerMenuLinks from 'src/constants/headerMenuLinks'
-import { getAllPostsForSitemap } from './api/strapiCalls'
+import { getAllEntitiesForeSitemap, getAllPostsForSitemap } from './api/strapiCalls'
 
 export default async function sitemap() {
   const URL = process.env.CANONICAL_URL;
@@ -7,10 +7,10 @@ export default async function sitemap() {
     url: `${URL}${href}`,
     lastModified: new Date(),
   }))
-  const posts = await getAllPostsForSitemap()
-  const postsLinks = posts?.map(({ attributes }) => ({
-    url: `${URL}/${attributes.topic.data.attributes.slug}/${attributes.slug}`,
-    lastModified: attributes.updatedAt,
+  const posts = await getAllEntitiesForeSitemap()
+  const postsLinks = posts?.map(({ link, updatedAt }) => ({
+    url: `${URL}/${link}`,
+    lastModified: updatedAt,
   }))
   return [
     {

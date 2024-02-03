@@ -8,7 +8,7 @@ export const sizeList = {
 
 const StrapiImage = ({ image, size }) => {
   const { formats } = image.data.attributes
-  console.log(formats[sizeList.medium].url)
+  //console.log(formats[sizeList.medium].url)
   return <Image url={formats[size].url} width={formats[size].width} height={formats[size].height} />
 }
 

@@ -37,7 +37,6 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { blogData, blogContent } = await getArticle(params)
-  console.log(blogData.cover)
   return (
     <>
       <script
