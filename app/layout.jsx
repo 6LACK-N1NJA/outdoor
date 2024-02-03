@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
         `}
         </Script>*/}
       <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: light)" />
-      <link rel="icon" href="/favicon-dark.ico" media="(prefers-color-scheme: dark)" />
+      {/* <link rel="icon" href="/favicon-dark.ico" media="(prefers-color-scheme: dark)" /> */}
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
         {/* <HeaderBanner /> */}
