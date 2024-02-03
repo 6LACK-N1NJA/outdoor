@@ -7,16 +7,16 @@ export async function generateMetadata({ params }) {
   return {
     title: `About`,
     description:
-      'Your guide to navigating the intricate world of investments and financial mastery',
+      'Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails',
     openGraph: {
       title: `About`,
       description:
-        'Your guide to navigating the intricate world of investments and financial mastery',
+        'Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails',
     },
     twitter: {
       title: `About`,
       description:
-        'Your guide to navigating the intricate world of investments and financial mastery',
+        'Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails',
     },
     alternates: {
       canonical: `/about`,
@@ -34,17 +34,22 @@ export default async function Page({ params }) {
       <article className="prose mx-auto">
         <h1>About</h1>
         <div>
-          Welcome to Time To Get Rich, your guide to navigating the intricate world of investments
-          and financial mastery. Join me on a journey where we explore the fundamentals of smart
-          investing, share insights into stocks, start-ups, real estate, and the dynamic realm of
-          cryptocurrency. Discover the mindset shifts required for financial success, learn
-          decision-making frameworks, and delve into real-life success stories.
+Welcome to Pure Mountain View, your premier destination for all things related to trekking, hiking, and camping. Born from a passion for the great outdoors and a desire to share that passion with like-minded adventurers, Pure Mountain View serves as a comprehensive guide to exploring the natural world.
+
+</div>
+<h2>Our Mission</h2>
+<div>
+At Pure Mountain View, our mission is simple: to inspire, educate, and equip outdoor enthusiasts of all levels. Whether you're planning your first hike or looking to tackle a challenging trek, our goal is to provide you with the information, resources, and inspiration you need to take your outdoor adventures to new heights.
+
+
+
         </div>
+        <h2>What We Offer</h2>
         <div>
-          Whether you're a seasoned investor or just starting, Time To Get Rich provides practical
-          advice, actionable strategies, and a supportive community to help you make informed
-          financial decisions. Explore our comprehensive resources, engage in thought-provoking
-          discussions, and embark on a path towards a wealthier and wiser future.
+        Expert Tips and Advice: From selecting the right gear to understanding trail etiquette, our tips and advice are grounded in experience and a deep love for outdoor exploration.
+In-Depth Gear Comparisons: We know that the right gear can make or break an outdoor adventure. That's why we provide detailed comparisons and reviews to help you make informed decisions about the equipment you need for your next journey.
+Trail Guides and Recommendations: Discover new trails and hidden gems with our curated guides. Whether you're looking for a serene hike or a challenging trek, we've got you covered.
+Community and Support: Pure Mountain View is more than just a website; it's a community of outdoor enthusiasts. We encourage our readers to share their experiences, tips, and stories to inspire and support fellow adventurers.
         </div>
       </article>
     </Container>
