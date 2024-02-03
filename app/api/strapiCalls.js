@@ -42,6 +42,18 @@ export async function getPostsForTopic(slug, paginationPage) {
   return posts
 }
 
+export async function getArticlesForOutoodCategory(slug, paginationPage) {
+  const articles = await (
+    await fetch(
+      `${
+        process.env.STRAPI
+      }/articless?populate[0]=topic&populate[1]=cover&fields[0]=title&fields[1]=createdAt&fields[3]=slug&filters[topic][slug][$eq]=${slug}&sort=createdAt:desc&pagination[page]=${
+        paginationPage || 1
+      }&pagination[pageSize]=${paginationSize}`
+    )
+  ).json()
+  return articles;
+}
 export async function getTopic(slug) {
   try {
     const topics = await (await fetch(`${process.env.STRAPI}/topics`)).json()
@@ -50,6 +62,15 @@ export async function getTopic(slug) {
     notFound()
   }
 }
+export async function getOutdoorCategory(slug) {
+  try {
+    const categories = await (await fetch(`${process.env.STRAPI}/outdoor-activity-categories?populate=*`)).json()
+    return categories.data.find(({ attributes }) => attributes.slug === slug).attributes
+  } catch (e) {
+    notFound()
+  }
+}
+
 
 export async function getPost(params) {
   try {
@@ -66,10 +87,26 @@ export async function getPost(params) {
   }
 }
 
+export async function getArticle(params) {
+  try {
+    const post = await (
+      await fetch(`${process.env.STRAPI}/articles?populate=*&filters[slug][$eq]=${params.postslug}`)
+    ).json()
+    const postItem = post.data[0].attributes
+    return {
+      blogData: postItem,
+      blogContent: postItem.text,
+    }
+  } catch {
+    notFound()
+  }
+}
+
+
 export async function getComparisonConfingList() {
   try {
     const response = await (
-      await fetch(`${process.env.STRAPI_LOCAL}/comparisons?populate=*`)
+      await fetch(`${process.env.STRAPI}/comparisons?populate=*`)
     ).json()
     const configList = response.data;
     return {
@@ -83,7 +120,7 @@ export async function getComparisonConfingList() {
 export async function getProductCardConfig(cardId) {
   try {
     const res = await (
-      await fetch(`${process.env.STRAPI_LOCAL}/comparison-product-card-configs/${cardId}?populate=*`)
+      await fetch(`${process.env.STRAPI}/comparison-product-card-configs/${cardId}?populate=*`)
     ).json()
     return res.data.attributes;
   } catch(e) {
@@ -96,7 +133,7 @@ export async function getFiltersConfig(filterIds) {
     return await Promise.all(
       filterIds.map(async (filterId) => {
         const res = await (
-          await fetch(`${process.env.STRAPI_LOCAL}/comparison-filters-configs/${filterId}?populate=*`)
+          await fetch(`${process.env.STRAPI}/comparison-filters-configs/${filterId}?populate=*`)
         ).json()
         return res.data.attributes;
       })
@@ -111,7 +148,7 @@ export async function getRankingConfig(rankingIds) {
     return await Promise.all(
       rankingIds.map(async (id) => {
         const res = await (
-          await fetch(`${process.env.STRAPI_LOCAL}/rankings/${id}?populate=*`)
+          await fetch(`${process.env.STRAPI}/rankings/${id}?populate=*`)
         ).json()
         return res.data.attributes;
       })

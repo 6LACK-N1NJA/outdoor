@@ -6,7 +6,7 @@ export default function HeaderMenuLinks({ menuLinks, navClass, ulClass }) {
       <ul className={ulClass && ulClass}>
         {menuLinks.map((menuLink, index, { length }) => {
           const isLast = index === length - 1
-          const isComparison = menuLink.href === '/comparison'
+          const isComparison = menuLink.href === '/gear-comparison'
           return (
             <li key={menuLink.href} className={isLast ? 'lg:ms-auto' : ''}>
               <Link

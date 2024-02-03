@@ -7,16 +7,17 @@ import Footer from '@component/Footer'
 import Header from '@component/Header'
 import Script from 'next/script'
 import Container from '@component/Container'
+import SITE_NAME from 'src/constants/siteName'
 
 export const metadata = {
   metadataBase: new URL(process.env.CANONICAL_URL),
-  title: 'Time To Get Rich',
-  description: 'Blog about personal financial development, investments and financial freedom',
+  title: `${SITE_NAME} | Trekking, Hiking, and Camping adventures`,
+  description: 'Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails',
   openGraph: {
-    title: 'Time To Get Rich',
-    description: 'Blog about personal financial development, investments and financial freedom',
+    title: SITE_NAME,
+    description: 'Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails',
     url: process.env.CANONICAL_URL,
-    siteName: 'Time To Get Rich',
+    siteName: SITE_NAME,
     type: 'website',
   },
   alternates: {
@@ -24,8 +25,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Time To Get Rich',
-    description: 'Blog about personal financial development, investments and financial freedom',
+    title: SITE_NAME,
+    description: 'Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails',
   },
   verification: {
     //google: "T6NYAA6XPT9qPpazXVJ6i22OeY6TRtCxxnTkRG1njt0",

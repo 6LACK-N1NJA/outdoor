@@ -2,14 +2,14 @@ import { promises as fs } from 'fs'
 import { join } from 'path'
 import Container from '@component/Container'
 import { createElement } from 'react'
-import { getPost } from '@/api/strapiCalls'
+import { getArticle, getPost } from '@/api/strapiCalls'
 import Image from 'next/image'
 import Link from 'next/link'
 import StrapiImage, { sizeList } from '@component/StrapiImage'
 
 export async function generateMetadata({ params }) {
   const { slug, postslug } = params
-  const { blogData } = await getPost(params)
+  const { blogData } = await getArticle(params)
   const { seo, cover } = blogData
   if (!seo[0]) return
   const { metaTitle, metaDescription, keywords } = seo[0]
@@ -36,8 +36,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const { blogData, blogContent } = await getPost(params)
-
+  const { blogData, blogContent } = await getArticle(params)
+  console.log(blogData.cover)
   return (
     <>
       <script

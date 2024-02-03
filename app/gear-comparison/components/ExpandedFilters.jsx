@@ -5,7 +5,6 @@ import Link from 'next/link'
 
 
 export default function ExpandedFilters({ comparisonsList, slug, filters, searchParams, emoTitle, description }) {
-    console.log(searchParams)
   const filterKeys = Object.keys(filters);
   return (
     <>

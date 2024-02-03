@@ -1,6 +1,8 @@
+import SITE_NAME from "src/constants/siteName"
+
 export async function generateMetadata() {
   return {
-    title: '404 | HyperUI',
+    title: `404 | ${SITE_NAME}`,
     description: "Uh-oh! It appears this page doesn't exist.",
   }
 }
