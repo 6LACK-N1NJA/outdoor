@@ -18,14 +18,14 @@ export default async function Page({ params, searchParams }) {
       || configList[0]
     ).attributes;
   //if (!config) config = configList && configList[0].attributes
-  const { emoji, selectedFields, title, slug } = config;
+  const { emoji, selectedFields, title, slug, csvData } = config;
   const emoTitle = `${title} ${emoji}`;
   const productCardConfig = await getProductCardConfig(config.productCardConfig.data.id)
   const filtersConfig = await getFiltersConfig(config.filtersList.data.map(({ id }) => id))
   const mergedFiltersConfig = flatten(filtersConfig.map(({ filtersList }) => filtersList))
   const rankingConfig = await getRankingConfig(config.rankingConfig.data.map(({ id }) => id))
   const mergedRankingConfig = flatten(rankingConfig.map(({ configsList }) => configsList))
-  const prod = await getProductList(config?.dataKey)
+  const prod = await getProductList(csvData)
   // Build filters based on products and config
   const filters = {};
   mergedFiltersConfig.forEach((f) => {

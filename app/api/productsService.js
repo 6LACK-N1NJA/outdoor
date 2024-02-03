@@ -4,10 +4,10 @@ import path from 'path'
 
 import { notFound } from 'next/navigation'
 
-const parseCSV = async (filePath) => {
+const parseCSV = async (url) => {
   try {
     // Read the CSV file content
-    const csvFile = await fs.readFile(filePath, 'utf8')
+    const csvFile = await fetch(url)
 
     // Return a new promise that resolves to the parsed data
     return new Promise((resolve, reject) => {
@@ -23,10 +23,10 @@ const parseCSV = async (filePath) => {
   }
 }
 
-export async function getProductList(dataKey) {
-  const filePath = path.join(process.cwd(), 'app', dataKey || '/public/trekking_boots.csv')
+export async function getProductList(csvData) {
+  //const filePath = path.join(process.cwd(), 'app', dataKey || '/public/trekking_boots.csv')
   try {
-    const data = await parseCSV(filePath)
+    const data = await parseCSV(csvData.data.attributes.url)
     return data;
   } catch (error) {
     console.error('Error parsing CSV file:', error)
