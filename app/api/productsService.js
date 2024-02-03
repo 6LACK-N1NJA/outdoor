@@ -24,7 +24,7 @@ const parseCSV = async (filePath) => {
 }
 
 export async function getProductList(dataKey) {
-  const filePath = path.join(process.cwd(), 'app', dataKey || 'trekking_boots.csv')
+  const filePath = path.join(process.cwd(), 'app', dataKey || '/public/trekking_boots.csv')
   try {
     const data = await parseCSV(filePath)
     return data;
