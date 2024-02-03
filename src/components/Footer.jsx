@@ -28,11 +28,11 @@ export default function Footer() {
               </p>
             </div>
           </div>
-          <div>
+          {/* <div>
             <Link href="https://twitter.com/timetogetrich_" target="_blank">
               <Image src="/x-logo.jpg" width={45} height={45} alt="The X logo" title="The X logo" />
             </Link>
-          </div>
+          </div> */}
         </div>
       </Container>
     </footer>

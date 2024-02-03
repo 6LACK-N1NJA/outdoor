@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       //disallow: ['/components/', '/blogs/'],
     },
-    sitemap: 'https://timetogetrich.online/sitemap.xml',
+    sitemap: `${process.env.CANONICAL_URL}/sitemap.xml`,
   }
 }

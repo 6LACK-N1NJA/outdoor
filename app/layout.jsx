@@ -41,7 +41,7 @@ const inter = Inter({
 export default function RootLayout({ children }) {
   return (
     <html className="h-full scroll-smooth" lang="en" dir="ltr">
-      {/*<Script
+      <Script
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.PUB_GA}`}
       />
@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
           page_path: window.location.pathname,
           });
         `}
-        </Script>*/}
+        </Script>
       <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: light)" />
       {/* <link rel="icon" href="/favicon-dark.ico" media="(prefers-color-scheme: dark)" /> */}
       <body className={`${inter.variable} font-sans antialiased`}>

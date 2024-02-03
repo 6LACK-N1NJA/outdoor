@@ -2,7 +2,7 @@ import headerMenuLinks from 'src/constants/headerMenuLinks'
 import { getAllPostsForSitemap } from './api/strapiCalls'
 
 export default async function sitemap() {
-  const URL = 'https://timetogetrich.online'
+  const URL = process.env.CANONICAL_URL;
   const categories = headerMenuLinks.map(({ href }) => ({
     url: `${URL}${href}`,
     lastModified: new Date(),
