@@ -7,7 +7,8 @@ import { notFound } from 'next/navigation'
 const parseCSV = async (url) => {
   try {
     // Read the CSV file content
-    const csvFile = await fetch(url)
+    const res = await fetch(url)
+    const csvFile = await res.text()
 
     // Return a new promise that resolves to the parsed data
     return new Promise((resolve, reject) => {
