@@ -4,20 +4,20 @@ const headerMenuLinks = [
     href: '/trekking',
     external: false,
   },
-  {
-    title: 'Hikking',
-    href: '/hikking',
-    external: false,
-  },
-  {
-    title: 'Camping',
-    href: '/camping',
-    external: false,
-  },
+  // {
+  //   title: 'Hikking',
+  //   href: '/hikking',
+  //   external: false,
+  // },
+  // {
+  //   title: 'Camping',
+  //   href: '/camping',
+  //   external: false,
+  // },
 
   {
     title: '🔥 Gear Comparison 🔥',
-    href: '/comparison',
+    href: '/gear-comparison',
     external: false,
   },
   {

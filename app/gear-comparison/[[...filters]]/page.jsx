@@ -91,8 +91,10 @@ export default async function Page({ params, searchParams }) {
     const { title, slug, emoji } = attributes;
     return { title, slug, emoji }
   })
+  const defaultTexts = config.defaultTexts.data?.attributes;
+  const customTexts = config.customTexts.data?.attributes;
   //console.log('prdcts', mappedProducts)
-  console.log('conf', filteredSelectedFields)
+  console.log('conf', defaultTexts)
   return (
     <>
       <Filters 
@@ -106,19 +108,22 @@ export default async function Page({ params, searchParams }) {
               searchParams={splittedSearchParams}
               slug={slug}
               emoTitle={emoTitle}
+              description={customTexts?.mainDescription || defaultTexts?.mainDescription}
             />
         }
         collapsedFilters={
           <CollapsedFilters
               emoTitle={emoTitle}
+              mainText={customTexts?.mainText || defaultTexts?.mainText}
+              description={customTexts?.mainDescription || defaultTexts?.mainDescription}
             />
         }
       />
       <SelectedProductsProvider 
         rankedProductList={rankedProductList}
       >
-        <ComparingProducts products={mappedProducts} productCardConfig={productCardConfig} />
-        <ProductsRanking rankedProductList={rankedProductList} />
+        <ComparingProducts products={mappedProducts} productCardConfig={productCardConfig} description={customTexts?.selectedProductsDescription || defaultTexts?.selectedProductsDescription} />
+        <ProductsRanking rankedProductList={rankedProductList} description={customTexts?.rankingDescription || defaultTexts?.rankingDescription}/>
       </SelectedProductsProvider>
     </>
   )

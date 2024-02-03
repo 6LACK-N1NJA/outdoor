@@ -24,7 +24,7 @@ export default function Footer() {
             <BrandLogo fontSize="text-lg" />
             <div className="mt-2">
               <p className="leading-relaxed text-gray-600">
-                Blog about personal financial development, investments and financial freedom
+              Your go-to guide for trekking, hiking, and camping adventures. Tips, gear comparisons, and trails
               </p>
             </div>
           </div>

@@ -1,13 +1,13 @@
 import RankingCard from './RankingCard'
 import KnowMore from './KnowMore'
 
-export default function ProductsRanking({ rankedProductList }) {
+export default function ProductsRanking({ rankedProductList, description }) {
   return (
     <section className="mt-10 mb-8">
         <div className='my-3 flex flex-wrap align-baseline'>
             <h2 className="text-2xl">Product top ranks</h2>
             <KnowMore>
-                Here is the text of how I calculated top ranks
+               {description}
             </KnowMore>
         </div>
       <div className="flex flex-col lg:flex-row">

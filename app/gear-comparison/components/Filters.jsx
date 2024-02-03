@@ -22,7 +22,7 @@ export default function Filters({ selectedFields, expandedFilters, collapsedFilt
   const ExpandedButton = () =>
   <div className='flex flex-col justify-end items-center'>
             <button 
-    className='border-x-2 border-t-2 text-sm text-zinc-500 rounded-t-md px-2 mx-10 mt-2 text-center hover:bg-zinc-100 hover:bg-opacity-50' 
+    className='border-x-2 border-t-2 text-sm text-zinc-600 rounded-t-md px-2 mx-10 mt-2 text-center hover:bg-zinc-100 hover:bg-opacity-50' 
     onClick={() => setIsExpanded(!isExpanded)}>
       {isExpanded ? '▴ Colapse Filters ▴' : '▾ Expand Filters ▾'}
   </button>
@@ -30,12 +30,12 @@ export default function Filters({ selectedFields, expandedFilters, collapsedFilt
   ;
   return (
     <>
-      <section className={`${!isExpanded ? 'hidden' : ''} rounded-b-lg border-2 sticky bg-opacity-10 border-t-white bg-stone-200 shadow-lg h-100`}>
+      <section className={`${!isExpanded ? 'hidden' : ''} z-40 rounded-b-lg border-2 sticky bg-opacity-10 border-t-white bg-stone-200 shadow-lg h-100`}>
        {expandedFilters}
        <ExpandedButton/>
       </section>
       <section
-      className={`${isExpanded ? 'hidden' : ''} rounded-b-lg border-2 sticky bg-opacity-10 border-t-white bg-stone-100 shadow-sm`}
+      className={`${isExpanded ? 'hidden' : ''} z-40 rounded-b-lg border-2 sticky bg-opacity-10 border-t-white bg-stone-100 shadow-sm`}
     >
          {collapsedFilters}
         <ExpandedButton/>
