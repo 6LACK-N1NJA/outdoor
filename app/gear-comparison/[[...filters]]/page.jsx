@@ -10,6 +10,38 @@ import rankingRules from 'src/constants/rankingRules'
 import ExpandedFilters from '../components/ExpandedFilters'
 import CollapsedFilters from '../components/CollapsedFilters'
 
+export async function generateMetadata({ params }) {
+  const { configList } = await getComparisonConfingList();
+  const  config = (
+      configList?.find(({ attributes }) => attributes.slug === (params.filters && params.filters[0])) 
+      || configList[0]
+    ).attributes;
+  const { slug } = params
+  const { seo, cover } = config
+  if (!seo) return
+  const { metaTitle, metaDescription, keywords } = seo;
+  return {
+    title: `${metaTitle}`,
+    description: metaDescription,
+    keywords: keywords.split(', '),
+    creator: 'Mykola Bludov',
+    authors: [{ name: 'Mykola Bludov' }],
+    openGraph: {
+      title: `${metaTitle}`,
+      description: metaDescription,
+      //image: cover.data.attributes.formats.thumbnail.url,
+    },
+    twitter: {
+      title: metaTitle,
+      description: metaDescription,
+      //image: cover.data.attributes.formats.thumbnail.url,
+    },
+    alternates: {
+      canonical: `/gear-comparison/${slug}`,
+    },
+  }
+}
+
 export default async function Page({ params, searchParams }) {
   const { configList } = await getComparisonConfingList();
    
