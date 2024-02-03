@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import 'server-only'
 
 const paginationSize = 6
+const REVALIDATION_INTERVAL = 72000;
 
 export async function getPosts(paginationPage) {
   const posts = await (
@@ -13,7 +14,7 @@ export async function getPosts(paginationPage) {
       }/posts?populate[0]=topic&populate[1]=cover&fields[0]=title&fields[1]=date&fields[2]=createdAt&fields[3]=slug&sort=createdAt:desc&pagination[page]=${
         paginationPage || 1
       }&pagination[pageSize]=${paginationSize}`,
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: REVALIDATION_INTERVAL } }
     )
   ).json()
   return posts
@@ -23,7 +24,7 @@ export async function getAllPostsForSitemap() {
   const posts = await (
     await fetch(
       `${process.env.STRAPI}/posts?populate[0]=topic&fields[0]=slug&fields[1]=updatedAt&sort=createdAt:desc`,
-      { next: { revalidate: 36000 } }
+      { next: { revalidate: REVALIDATION_INTERVAL } }
     )
   ).json()
   return posts.data
@@ -124,7 +125,7 @@ export async function getComparisonConfingList() {
   try {
     const response = await (
       await fetch(`${process.env.STRAPI}/comparisons?populate=*`,
-      { next: { revalidate: 6000 } }
+      { next: { revalidate: REVALIDATION_INTERVAL } }
       )
     ).json()
     const configList = response.data;
