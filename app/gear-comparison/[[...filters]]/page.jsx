@@ -16,8 +16,7 @@ export async function generateMetadata({ params }) {
       configList?.find(({ attributes }) => attributes.slug === (params.filters && params.filters[0])) 
       || configList[0]
     ).attributes;
-  const { slug } = params
-  const { seo, cover } = config
+  const { seo, cover ,slug } = config
   if (!seo) return
   const { metaTitle, metaDescription, keywords } = seo;
   return {
