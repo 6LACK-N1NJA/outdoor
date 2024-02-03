@@ -123,8 +123,9 @@ export async function getArticlesForSitemap() {
 export async function getComparisonConfingList() {
   try {
     const response = await (
-      await fetch(`${process.env.STRAPI}/comparisons?populate=*`),
+      await fetch(`${process.env.STRAPI}/comparisons?populate=*`,
       { next: { revalidate: 6000 } }
+      )
     ).json()
     const configList = response.data;
     return {
