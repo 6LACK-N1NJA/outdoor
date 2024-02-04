@@ -69,7 +69,7 @@ export default function ProductCard({ product, productCardConfig }) {
       </figure>
       </div>
       <button className="z-10 self-center w-2/3 h-12 rounded-xl border-2 border-solid border-slate-800 bg-lime-500 bg-opacity-60 p-2 hover:cursor-pointer hover:bg-orange-600 hover:bg-opacity-90">
-        <Link target="_blank" href={product.link}>
+        <Link target="_blank" href={product.link} title={`Discover ${product.modelName} on Amazon`}>
           <b>{`${product.emoji} Check on Amazon ${product.emoji}`}</b>
         </Link>
       </button>

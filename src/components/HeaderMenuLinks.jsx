@@ -15,6 +15,7 @@ export default function HeaderMenuLinks({ menuLinks, navClass, ulClass }) {
                   target: '_blank',
                   rel: 'noreferrer',
                 })}
+                title={menuLink.title}
               >
                 <div
                   className={

@@ -16,7 +16,7 @@ export default function ExpandedFilters({ comparisonsList, slug, filters, search
                 <div className='jalousie-content-opacity '>
                   <h4 className='text-lg font-semibold'>Other comparisons</h4>
                   {comparisonsList.filter((c) => c.slug !== slug).map(({ title, slug }) => <p className='hover:text-orange-500 hover:underline' key={`${slug}_filter`}>
-                    <Link href={`/gear-comparison/${slug}`}>
+                    <Link href={`/gear-comparison/${slug}`} title={title}>
                         {title}
                     </Link>
                   </p>)}
