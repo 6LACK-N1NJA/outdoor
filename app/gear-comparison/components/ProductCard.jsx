@@ -18,7 +18,13 @@ export default function ProductCard({ product, productCardConfig }) {
       <div className='relative h-36'>
       <div className='absolute h-80  w-full -top-24 left-5'>
       <figure className='relative h-80 w-full overflow-hidden'>
-        <Image className='object-contain z-0 scale-50 hover:scale-100 hover:z-20' src={product.image} fill alt={product.modelName} />
+        <Image 
+          className='object-contain z-0 scale-50 hover:scale-100 hover:z-20' 
+          src={product.image} 
+          fill 
+          alt={product.modelName}
+          title={product.modelName}
+        />
       </figure>
       </div>
       </div>
