@@ -33,6 +33,11 @@ export default function Footer() {
               <Image src="/x-logo.jpg" width={45} height={45} alt="The X logo" title="The X logo" />
             </Link>
           </div> */}
+          <span className=' text-zinc-500 text-xs self-end'>
+            <Link className=' hover:text-blue-400' title='Privacy Policy' href='privacy-policy'>Privacy Policy </Link>
+             | 
+            <Link className=' hover:text-blue-400' title='Affiliate disclosure' href='affiliate-disclosure'> Affiliate disclosure</Link>
+          </span>
         </div>
       </Container>
     </footer>

@@ -17,6 +17,14 @@ export default async function sitemap() {
       url: URL,
       lastModified: new Date(),
     },
+    {
+      url: `${URL}/privacy-policy`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${URL}/affiliate-disclosure`,
+      lastModified: new Date(),
+    },
     ...categories,
     ...postsLinks,
   ]
