@@ -6,6 +6,7 @@ import { getArticle, getPost } from '@/api/strapiCalls'
 import Image from 'next/image'
 import Link from 'next/link'
 import StrapiImage, { sizeList } from '@component/StrapiImage'
+import React from 'react'
 
 export async function generateMetadata({ params }) {
   const { slug, postslug } = params
