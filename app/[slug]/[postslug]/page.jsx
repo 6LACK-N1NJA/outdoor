@@ -82,7 +82,7 @@ export default async function Page({ params }) {
                   }
                   if (type === 'link') {
                     return (
-                      <Link key={index + url} target="_blank" href={url}>
+                      <Link key={index + url} target="_blank" href={url} title={children[0].text}>
                         {children[0].text}
                       </Link>
                     )
