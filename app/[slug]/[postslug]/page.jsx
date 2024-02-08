@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import StrapiImage, { sizeList } from '@component/StrapiImage'
 import React from 'react'
+import createArticleElements from './parseRichTextFromStrapi'
 
 export async function generateMetadata({ params }) {
   const { slug, postslug } = params
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { blogData, blogContent } = await getArticle(params)
+  const articleElements = createArticleElements(blogContent)
   return (
     <>
       <script
@@ -53,8 +55,18 @@ export default async function Page({ params }) {
 
           <h1 className="mt-1">{blogData.title}</h1>
         </header>
-
-        {blogContent.map(({ type, level, children, image }, index, list) => {
+        {articleElements[0]}
+        {!blogData.noCoverInText && (
+                <Image
+                  src={blogData.cover.data.attributes.formats.medium.url}
+                  width={blogData.cover.data.attributes.formats.medium.width}
+                  height={blogData.cover.data.attributes.formats.medium.height}
+                  alt={blogData.seo[0]?.metaTitle}
+                  title={blogData.seo[0]?.metaTitle}
+                />)
+          }
+        {articleElements.slice(1)}
+        {/* {blogContent.map(({ type, level, children, image }, index, list) => {
           if (type === 'image') {
             return (
               <Image
@@ -108,7 +120,7 @@ export default async function Page({ params }) {
           ) : (
             el
           )
-        })}
+        })} */}
       </article>
     </>
   )
