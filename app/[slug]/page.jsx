@@ -4,6 +4,9 @@ import HeroBanner from '@component/HeroBanner'
 import BlogGrid from '@component/BlogGrid'
 import LoadMore from '@component/LoadMore'
 import SITE_NAME from 'src/constants/siteName'
+import TopicDescription from './components/TopicDesccription'
+import MainArticleCard from './components/MainArticleCard'
+import SecondaryArticleCard from './components/SecondaryArticleCard'
 
 export async function generateMetadata({ params }) {
   const { slug } = params
@@ -30,14 +33,26 @@ export default async function Page({ params }) {
   const topic = await getOutdoorCategory(params.slug)
   const posts = topic.articles;
   const { data, meta } = posts
+  const { slug } = params;
+  const mainArticles = data.filter(({ attributes }) => attributes.isMain);
+  const secondaryArticles = data.filter(({ attributes }) => !attributes.isMain);
   const fetchPostFromClient = async (page) => {
     'use server'
     return await getArticlesForOutoodCategory(params.slug, page)
   }
   return (
     <>
-      <HeroBanner title={topic.title}>{topic.info}</HeroBanner>
-      <BlogGrid blogPosts={data} categorySlug={params.slug}/>
+      {/* <HeroBanner title={topic.title}>{topic.info}</HeroBanner>
+      <BlogGrid blogPosts={data} categorySlug={params.slug}/> */}
+      <div className='flex flex-row'>
+        <TopicDescription text={topic.info} title={topic.title}/>
+        <section className="w-full lg:w-1/2">
+          {mainArticles.map(({ attributes }) => <MainArticleCard topicSlug={slug} article={attributes}/>)}
+        </section>
+      </div>
+      <section className='grid grid-cols-2 lg:grid-cols-4 gap-2'>
+        {secondaryArticles.map(({ attributes }) => <SecondaryArticleCard topicSlug={slug} article={attributes}/>)}
+      </section>
       {/* <LoadMore fetchPosts={fetchPostFromClient} primaryPagination={meta.pagination} /> */}
     </>
   )
