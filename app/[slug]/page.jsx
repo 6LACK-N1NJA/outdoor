@@ -51,7 +51,7 @@ export default async function Page({ params }) {
           {mainArticles.map(({ attributes }) => <MainArticleCard topicSlug={slug} article={attributes}/>)}
         </section>
       </div>
-      <section className='grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5'>
+      <section className='grid grid-cols-2 lg:grid-cols-4 gap-4 mb-11'>
         {secondaryArticles.map(({ attributes }) => <SecondaryArticleCard topicSlug={slug} article={attributes}/>)}
       </section>
       {/* <LoadMore fetchPosts={fetchPostFromClient} primaryPagination={meta.pagination} /> */}
