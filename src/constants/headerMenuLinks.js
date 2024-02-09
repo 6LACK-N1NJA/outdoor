@@ -1,6 +1,6 @@
 const headerMenuLinks = [
   {
-    title: 'Trekking',
+    title: 'TREKKING',
     href: '/trekking',
     external: false,
   },
@@ -16,12 +16,12 @@ const headerMenuLinks = [
   // },
 
   {
-    title: '🔥 Gear Comparison 🔥',
+    title: '🔥 GEAR COMPARISON 🔥',
     href: '/gear-comparison',
     external: false,
   },
   {
-    title: 'About',
+    title: 'ABOUT',
     href: '/about',
     external: true,
   },
