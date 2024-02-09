@@ -1,11 +1,6 @@
-import { promises as fs } from 'fs'
-import { join } from 'path'
-import Container from '@component/Container'
-import { createElement } from 'react'
-import { getArticle, getPost } from '@/api/strapiCalls'
+import { getArticle } from '@/api/strapiCalls'
 import Image from 'next/image'
 import Link from 'next/link'
-import StrapiImage, { sizeList } from '@component/StrapiImage'
 import React from 'react'
 import createArticleElements from './parseRichTextFromStrapi'
 

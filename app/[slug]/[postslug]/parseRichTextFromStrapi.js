@@ -12,18 +12,20 @@ const textEntityTypes = {
 }
 
 const childTypes = {
-    text: null,
+    text: 'span',
     'list-item': 'li',
-    bold: 'b',
     link: 'link'
 }
 
 function createElementForChild(child, index) {
-    const { type, text, url } = child;
+    const { type, text, url, children, bold } = child;
     const childType = childTypes[type];
-    if (!childTypes) return <React.Fragment key={index}>{text}</React.Fragment>;
-    if (childType === 'link') return <Link title={text} target="_blank" href={url}>{text}</Link>;
-    return createElement('span', { key: `${index}_${type}` }, text);
+    let mappedChildren;
+    if (children?.length > 0) mappedChildren = children.map((child, index) => createElementForChild(child, index))
+    if (!childType) return <span className='font-bold' key={index}>NO_TYPE_FOUND</span>;
+    // In Link go to first child directly, cause it's one as ususal
+    if (childType === 'link') return <Link title={children[0].text} target="_blank" href={url}>{children[0].text}</Link>;
+    return createElement(childType, { key: `${index}_${type}`, className: `${bold ? 'font-bold' : ''}` }, mappedChildren || text);
 }
 
 
@@ -39,7 +41,6 @@ export default function createArticleElements(reachText) {
               title={list[index - 1].children[0]?.text || `Image #${index}`}
             />
           )
-          console.log(`type: ${type} ${!textEntityTypes[type] && '<- ITS HERE'} `)
         const wrapElementName = `${textEntityTypes[type]}${level ? level : ''}`;
         const childNodes = children.map((child, index) => createElementForChild(child, index))
         return createElement(
