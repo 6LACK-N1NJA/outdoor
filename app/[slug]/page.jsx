@@ -44,9 +44,9 @@ export default async function Page({ params }) {
     <>
       {/* <HeroBanner title={topic.title}>{topic.info}</HeroBanner>
       <BlogGrid blogPosts={data} categorySlug={params.slug}/> */}
-      <div className='flex flex-row'>
+      <div className='grid grid-cols-1 lg:grid-cols-2'>
         <TopicDescription text={topic.info} title={topic.title}/>
-        <section className="w-full lg:w-1/2">
+        <section className="m-4 grid grid-rows-3 gap-2">
           {mainArticles.map(({ attributes }) => <MainArticleCard topicSlug={slug} article={attributes}/>)}
         </section>
       </div>

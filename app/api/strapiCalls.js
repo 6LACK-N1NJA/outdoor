@@ -88,10 +88,10 @@ export async function getPost(params) {
   }
 }
 
-export async function getArticle(params) {
+export async function getArticle(postslug) {
   try {
     const post = await (
-      await fetch(`${process.env.STRAPI}/articles?populate=*&filters[slug][$eq]=${params.postslug}`)
+      await fetch(`${process.env.STRAPI}/articles?populate=*&filters[slug][$eq]=${postslug}`)
     ).json()
     const postItem = post.data[0].attributes
     return {

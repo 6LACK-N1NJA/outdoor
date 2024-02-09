@@ -6,7 +6,7 @@ import createArticleElements from './parseRichTextFromStrapi'
 
 export async function generateMetadata({ params }) {
   const { slug, postslug } = params
-  const { blogData } = await getArticle(params)
+  const { blogData } = await getArticle(postslug)
   const { seo, cover } = blogData
   if (!seo) return
   const { metaTitle, metaDescription, keywords } = seo;
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const { blogData, blogContent } = await getArticle(params)
+  const { blogData, blogContent } = await getArticle(params.postslug)
   const articleElements = createArticleElements(blogContent)
   return (
     <>
@@ -61,61 +61,6 @@ export default async function Page({ params }) {
                 />)
           }
         {articleElements.slice(1)}
-        {/* {blogContent.map(({ type, level, children, image }, index, list) => {
-          if (type === 'image') {
-            return (
-              <Image
-                key={index}
-                src={image.formats.small.url}
-                width={image.formats.small.width}
-                height={image.formats.small.height}
-                alt={list[index - 1].children[0]?.text || 'Image in text'}
-                title={list[index - 1].children[0]?.text || `Image #${index}`}
-              />
-            )
-          }
-          const wrapElementName = type === 'heading' ? `h${level}` : 'div'
-          let text
-          if (children.length === 1) {
-            text = children[0].text
-          } else {
-            text = (
-              <>
-                {children.map(({ type, text, url, children }) => {
-                  if (type === 'text') {
-                    return <React.Fragment key={text+url}>
-                      text
-                    </React.Fragment>
-                  }
-                  if (type === 'link') {
-                    return (
-                      <Link key={index + url} target="_blank" href={url} title={children[0].text}>
-                        {children[0].text}
-                      </Link>
-                    )
-                  }
-                })}
-              </>
-            )
-          }
-          const el = createElement(wrapElementName, { key: index }, text)
-          return index === 0 ? (
-            <div key={index}>
-              {el}
-              {!blogData.noCoverInText && (
-                <Image
-                  src={blogData.cover.data.attributes.formats.medium.url}
-                  width={blogData.cover.data.attributes.formats.medium.width}
-                  height={blogData.cover.data.attributes.formats.medium.height}
-                  alt={blogData.seo[0]?.metaTitle}
-                  title={blogData.seo[0]?.metaTitle}
-                />
-              )}
-            </div>
-          ) : (
-            el
-          )
-        })} */}
       </article>
     </>
   )
