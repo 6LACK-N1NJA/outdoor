@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-gray-200 bg-white">
-      <Container classNames="py-4 lg:py-5">
+      <Container classNames="py-3">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
             <BrandLogo fontSize="text-lg" />

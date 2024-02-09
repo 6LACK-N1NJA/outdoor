@@ -6,7 +6,6 @@ export default async function MainArticleCard({ article, topicSlug }) {
     const { title, slug } = article;
     const fullArticle = await getArticle(slug);
     const { cover } = fullArticle.blogData;
-    console.log(fullArticle)
     return (
         <Link href="/[slug]/[postslug]" as={`/${topicSlug}/${slug}`}>
             <article className='h-1/2'>
