@@ -8,11 +8,11 @@ export default async function MainArticleCard({ article, topicSlug }) {
     const { cover } = fullArticle.blogData;
     return (
         <Link href="/[slug]/[postslug]" as={`/${topicSlug}/${slug}`}>
-            <article className='h-1/2'>
+            <article className='h-3/5 lg:h-1/2 xl:h-3/5'>
             <div className="group relative block h-full bg-white before:absolute before:inset-0 before:rounded-lg before:border-2 before:border-dashed before:border-gray-900">
         <div className="h-full rounded-lg border-2 border-gray-900 bg-white transition group-hover:-translate-y-2 ltr:group-hover:-translate-x-2 rtl:group-hover:translate-x-2">
          
-          <div className="z-20 p-2 sm:p-4 lg:p-6">
+          <div className="z-20 lg:p-3">
             <div>
               <h2 className=" pt-11 z-20 mt-4 text-lg font-medium text-gray-900 sm:text-xl">
                 {title}
