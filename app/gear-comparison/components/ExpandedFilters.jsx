@@ -4,14 +4,10 @@ import KnowMore from './KnowMore'
 import Link from 'next/link'
 
 
-export default function ExpandedFilters({ comparisonsList, slug, filters, searchParams, emoTitle, description }) {
+export default function ExpandedFilters({ comparisonsList, slug, filters, searchParams, description }) {
   const filterKeys = Object.keys(filters);
   return (
     <>
-        <div className='flex flex-row justify-center'>
-            <h1 className='mb-5 text-2xl'>{emoTitle}</h1>
-            <KnowMore>{description}</KnowMore>
-        </div>
         <div className='flex flex-col lg:flex-row justify-around'>
                 <div className='jalousie-content-opacity '>
                   <h4 className='text-lg font-semibold'>Other comparisons</h4>

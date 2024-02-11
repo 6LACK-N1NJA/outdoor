@@ -129,7 +129,9 @@ export default async function Page({ params, searchParams }) {
     <>
       <Filters 
         filters={filters}
-        selectedFields={filteredSelectedFields} 
+        selectedFields={filteredSelectedFields}
+        emoTitle={emoTitle}
+        description={customTexts?.mainDescription || defaultTexts?.mainDescription}
         expandedFilters={
             <ExpandedFilters 
               comparisonsList={comparisonsList}
@@ -137,15 +139,12 @@ export default async function Page({ params, searchParams }) {
               selectedFields={filteredSelectedFields}
               searchParams={splittedSearchParams}
               slug={slug}
-              emoTitle={emoTitle}
-              description={customTexts?.mainDescription || defaultTexts?.mainDescription}
             />
         }
         collapsedFilters={
           <CollapsedFilters
               emoTitle={emoTitle}
               mainText={customTexts?.mainText || defaultTexts?.mainText}
-              description={customTexts?.mainDescription || defaultTexts?.mainDescription}
             />
         }
       />
