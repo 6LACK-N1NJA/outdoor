@@ -83,7 +83,8 @@ export default async function Page({ params, searchParams }) {
       splittedSearchParams[param] = splitted;
       if (index > 0 && infiltered === false) return;
       infiltered = false;
-      splitted.forEach((value) => product[param] === value && (infiltered = true)) 
+      console.log('split', splitted)
+      splitted.forEach((value) => product[param].toLowerCase().includes(value.toLowerCase()) && (infiltered = true)) 
     })
     return infiltered;
   }) : prod;
@@ -124,8 +125,6 @@ export default async function Page({ params, searchParams }) {
   })
   const defaultTexts = config.defaultTexts.data?.attributes;
   const customTexts = config.customTexts.data?.attributes;
-  //console.log('prdcts', mappedProducts)
-  //console.log('conf', defaultTexts)
   return (
     <>
       <Filters 

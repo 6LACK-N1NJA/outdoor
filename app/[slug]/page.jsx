@@ -52,7 +52,7 @@ export default async function Page({ params }) {
         </section>
       </div>
       <section className='grid grid-cols-2 lg:grid-cols-4 gap-4 mb-11'>
-        {secondaryArticles.map(({ attributes }) => <SecondaryArticleCard topicSlug={slug} article={attributes}/>)}
+        {secondaryArticles.map(({ attributes }, index) => <SecondaryArticleCard key={`${index}_sec_artc`} topicSlug={slug} article={attributes}/>)}
       </section>
       {/* <LoadMore fetchPosts={fetchPostFromClient} primaryPagination={meta.pagination} /> */}
     </>
