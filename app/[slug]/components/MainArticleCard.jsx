@@ -14,7 +14,7 @@ export default async function MainArticleCard({ article, topicSlug }) {
          
           <div className="z-20 lg:p-3">
             <div>
-              <h2 className=" pt-11 z-20 mt-4 text-lg font-medium text-gray-900 sm:text-xl">
+              <h2 className=" pt-14 z-20 mt-4 text-lg font-medium text-gray-900 sm:text-xl">
                 {title}
               </h2>
 
