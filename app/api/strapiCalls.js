@@ -50,7 +50,8 @@ export async function getArticlesForOutoodCategory(slug, paginationPage) {
         process.env.STRAPI
       }/articless?populate[0]=topic&populate[1]=cover&fields[0]=title&fields[1]=createdAt&fields[3]=slug&filters[topic][slug][$eq]=${slug}&sort=createdAt:desc&pagination[page]=${
         paginationPage || 1
-      }&pagination[pageSize]=${paginationSize}`
+      }&pagination[pageSize]=${paginationSize}`,
+      { next: { revalidate: REVALIDATION_INTERVAL } }
     )
   ).json()
   return articles;
@@ -91,13 +92,23 @@ export async function getPost(params) {
 export async function getArticle(postslug) {
   try {
     const post = await (
-      await fetch(`${process.env.STRAPI}/articles?populate=*&filters[slug][$eq]=${postslug}`)
+      await fetch(`${process.env.STRAPI}/articles?populate=*&filters[slug][$eq]=${postslug}`,
+      { next: { revalidate: REVALIDATION_INTERVAL } })
     ).json()
     const postItem = post.data[0].attributes
     return {
       blogData: postItem,
       blogContent: postItem.text,
     }
+  } catch {
+    notFound()
+  }
+}
+
+export async function getArticles() {
+  try {
+    const res = (await fetch(`${process.env.STRAPI}/articles`, { next: { revalidate: REVALIDATION_INTERVAL } })).json();
+    return res;
   } catch {
     notFound()
   }
