@@ -35,8 +35,8 @@ export default async function Page({ params }) {
   const posts = topic.articles;
   const { data, meta } = posts
   const { slug } = params;
-  const mainArticles = data.filter(({ attributes }) => attributes.isMain);
-  const secondaryArticles = data.filter(({ attributes }) => !attributes.isMain).sort((a, b) => a.attributes.createdAt > b.attributes.createdAt ? -1 : 1);
+  const mainArticles = data.filter(({ attributes }) => attributes?.isMain);
+  const secondaryArticles = data.filter(({ attributes }) => !attributes?.isMain).sort((a, b) => a?.attributes.createdAt > b?.attributes.createdAt ? -1 : 1);
   const fetchPostFromClient = async (page) => {
     'use server'
     return await getArticlesForOutoodCategory(params.slug, page)
