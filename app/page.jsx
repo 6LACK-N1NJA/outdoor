@@ -22,6 +22,7 @@ export default async function Page() {
         <section className='flex flex-col lg:flex-row justify-around'>
           <PageColumn>
             <h2 className={`${headerStyle}`}>Information</h2>
+            
           </PageColumn>
           <PageColumn>
             <h2 className={`${headerStyle}`}>Destinations</h2>

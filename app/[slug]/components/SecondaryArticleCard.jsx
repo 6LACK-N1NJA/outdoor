@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 
 export default async function SecondaryArticleCard({ article, topicSlug, key }) {
-    const { title, slug, date, createdAt, updatedAt } = article;
+    const { title, slug, date, createdAt, updatedAt, publishedAt } = article;
     const fullArticle = await getArticle(slug);
     const { cover } = fullArticle.blogData;
     return (
@@ -41,7 +41,7 @@ export default async function SecondaryArticleCard({ article, topicSlug, key }) 
              <div className="p-1 lg:p-2">
             <div>
             <time className="text-xs text-zinc-600">
-                {new Date(date || updatedAt).toDateString()}
+                {new Date(date || publishedAt).toDateString()}
               </time>
              <h2 className=" text-lg font-medium text-gray-900 sm:text-xl">
                 {title}
