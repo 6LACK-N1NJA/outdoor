@@ -11,7 +11,7 @@ import SecondaryArticleCard from './components/SecondaryArticleCard'
 export async function generateMetadata({ params }) {
   const { slug } = params
   const topic = await getOutdoorCategory(slug)
-  console.log(topic)
+  //console.log(topic)
   return {
     title: `The ${topic.title} Page | ${SITE_NAME}`,
     description: topic.seo.metaDescription,

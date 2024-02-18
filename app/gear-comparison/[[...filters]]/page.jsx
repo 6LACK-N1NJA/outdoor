@@ -83,7 +83,6 @@ export default async function Page({ params, searchParams }) {
       splittedSearchParams[param] = splitted;
       if (index > 0 && infiltered === false) return;
       infiltered = false;
-      console.log('split', splitted)
       splitted.forEach((value) => product[param].toLowerCase().includes(value.toLowerCase()) && (infiltered = true)) 
     })
     return infiltered;
