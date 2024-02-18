@@ -67,7 +67,7 @@ export async function getTopic(slug) {
 export async function getOutdoorCategory(slug) {
   try {
     const categories = await (await fetch(`${process.env.STRAPI}/outdoor-activity-categories?populate=*`)).json()
-    return categories.data.find(({ attributes }) => attributes.slug === slug).attributes
+    return categories.data.find(({ attributes }) => attributes.slug === slug)?.attributes
   } catch (e) {
     notFound()
   }
