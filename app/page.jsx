@@ -11,6 +11,7 @@ import Link from 'next/link'
 export default async function Page() {
   const articles = await getArticles()
   //console.log(articles)
+  
   const headerStyle = 'text-zinc-700 text-2xl'
   const PageColumn = ({ children }) => <article className=' border-b-2 lg:border-b-0'>{children}</article>;
   return (
