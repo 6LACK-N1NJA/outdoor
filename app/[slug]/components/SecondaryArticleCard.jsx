@@ -29,7 +29,7 @@ export default async function SecondaryArticleCard({ article, topicSlug, key }) 
              <div className='h-32 relative'>
              {cover && <Image
             className=' object-cover rounded-md z-10'
-            src={cover.data.attributes.formats.small.url}
+            src={cover.data?.attributes.formats.small.url}
             // width={cover.data.attributes.formats.small.width}
             // height={cover.data.attributes.formats.small.height}
             alt={title}

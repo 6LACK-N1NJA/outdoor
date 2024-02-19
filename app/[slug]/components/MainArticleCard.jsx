@@ -25,9 +25,9 @@ export default async function MainArticleCard({ article, topicSlug }) {
           </div>
           {cover && <Image
             className='object-cover rounded-md z-10'
-            src={cover.data.attributes.formats.small.url}
-            // width={cover.data.attributes.formats.small.width}
-            // height={cover.data.attributes.formats.small.height}
+            src={cover.data?.attributes.formats.small.url}
+            // width={cover.data?.attributes.formats.small.width}
+            // height={cover.data?.attributes.formats.small.height}
             alt={title}
             title={title}
             fill
