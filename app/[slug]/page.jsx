@@ -35,8 +35,8 @@ export default async function Page({ params }) {
   const posts = topic.articles;
   const { data, meta } = posts
   const { slug } = params;
-  const mainArticles = data.filter(({ attributes }) => attributes?.isMain);
-  const secondaryArticles = data.filter(({ attributes }) => !attributes?.isMain).sort((a, b) => a?.attributes.createdAt > b?.attributes.createdAt ? -1 : 1);
+  const mainArticles = data.filter((a) => a?.attributes?.isMain);
+  const secondaryArticles = data.filter((a) => !a?.attributes?.isMain).sort((a, b) => a?.attributes.createdAt > b?.attributes.createdAt ? -1 : 1);
   const fetchPostFromClient = async (page) => {
     'use server'
     return await getArticlesForOutoodCategory(params.slug, page)
@@ -48,11 +48,11 @@ export default async function Page({ params }) {
       <div className='grid grid-cols-1 lg:grid-cols-2'>
         <TopicDescription text={topic.info} title={topic.title}/>
         <section className="m-4 grid grid-rows-3 gap-2">
-          {mainArticles.map(({ attributes }) => <MainArticleCard topicSlug={slug} article={attributes}/>)}
+          {mainArticles.map((a) => <MainArticleCard topicSlug={slug} article={a?.attributes}/>)}
         </section>
       </div>
       <section className='grid grid-cols-2 lg:grid-cols-4 gap-4 mb-11'>
-        {secondaryArticles.map(({ attributes }, index) => <SecondaryArticleCard key={`${index}_sec_artc`} topicSlug={slug} article={attributes}/>)}
+        {secondaryArticles.map((a, index) => <SecondaryArticleCard key={`${index}_sec_artc`} topicSlug={slug} article={a?.attributes}/>)}
       </section>
       {/* <LoadMore fetchPosts={fetchPostFromClient} primaryPagination={meta.pagination} /> */}
     </>
