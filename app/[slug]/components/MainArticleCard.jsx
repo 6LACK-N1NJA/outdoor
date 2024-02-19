@@ -5,6 +5,7 @@ import Image from 'next/image'
 export default async function MainArticleCard({ article, topicSlug }) {
     const { title, slug } = article;
     const fullArticle = await getArticle(slug);
+    console.log(fullArticle)
     const { cover } = fullArticle.blogData;
     return (
         <Link href="/[slug]/[postslug]" as={`/${topicSlug}/${slug}`}>
