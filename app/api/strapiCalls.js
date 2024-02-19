@@ -59,7 +59,7 @@ export async function getArticlesForOutoodCategory(slug, paginationPage) {
 export async function getTopic(slug) {
   try {
     const topics = await (await fetch(`${process.env.STRAPI}/topics`)).json()
-    return topics.data.find(({ attributes }) => attributes.slug === slug).attributes
+    return topics.data.find(({ attributes }) => attributes.slug === slug)?.attributes
   } catch {
     notFound()
   }
@@ -67,7 +67,7 @@ export async function getTopic(slug) {
 export async function getOutdoorCategory(slug) {
   try {
     const categories = await (await fetch(`${process.env.STRAPI}/outdoor-activity-categories?populate=*`)).json()
-    return categories.data.find(({ attributes }) => attributes.slug === slug)?.attributes
+    return categories.data.find((a) => a?.attributes.slug === slug)?.attributes
   } catch (e) {
     notFound()
   }
@@ -122,7 +122,7 @@ export async function getArticlesForSitemap() {
     const articles = posts.data.map(({ attributes }) => {
       const postItem = attributes
     const { slug, outdoor_activity_categories, updatedAt } = postItem;
-    const category = outdoor_activity_categories.data[0].attributes.slug;
+    const category = outdoor_activity_categories.data[0]?.attributes.slug;
     return { link: `${category}/${slug}`, updatedAt };
     })
     return articles;
