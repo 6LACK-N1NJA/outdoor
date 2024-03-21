@@ -17,7 +17,11 @@ export default async function Page() {
   const comperisons = await getComparisonConfingList();
   const headerStyle = 'text-zinc-700 text-2xl'
   const PageColumn = ({ children }) => <article className=' border-b-2 lg:border-b-0'>{children}</article>;
-  const basicMapper = ({ attributes }) => <li key={`complist_${attributes.slug}`}><Link href="/gear-comparison/[[...filters]]" as={`/gear-comparison/${attributes.slug}`}>{`${attributes.title} ${attributes.emoji ? attributes.emoji: ''}`}</Link></li>
+  const basicMapper = (href, as) => ({ attributes }) => {
+    const topicSlug = `/${attributes.outdoor_activity_categories?.data[0]?.attributes.slug}/`;
+    console.log(attributes.outdoor_activity_categories)
+    return <li key={`complist_${attributes.slug}`}><Link href={href} as={`${as || topicSlug}${attributes.slug}`}>{`${attributes.title} ${attributes.emoji ? attributes.emoji: ''}`}</Link></li>
+  }
   return (
     <>
       <HeroBanner title={SITE_NAME}>
@@ -27,16 +31,16 @@ export default async function Page() {
         <section className='flex flex-col lg:flex-row justify-around'>
           <PageColumn>
             <h2 className={`${headerStyle}`}>Information</h2>
-            {knowledgeArticles.map(basicMapper)}
+            {knowledgeArticles.map(basicMapper('/[slug]/[postslug]'))}
           </PageColumn>
           <PageColumn>
             <h2 className={`${headerStyle}`}>Destinations</h2>
-            {destinationArticles.map(basicMapper)}
+            {destinationArticles.map(basicMapper('/[slug]/[postslug]'))}
           </PageColumn>
           <PageColumn>
             <h2 className={`${headerStyle}`}>Gear Comparison</h2>
             <ul>
-              {comperisons.configList.map(basicMapper)}
+              {comperisons.configList.map(basicMapper("/gear-comparison/[[...filters]]", '/gear-comparison/'))}
             </ul>
           </PageColumn>
         </section>

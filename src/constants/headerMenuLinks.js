@@ -4,13 +4,13 @@ const headerMenuLinks = [
     href: '/trekking',
     external: false,
   },
+  {
+    title: 'HIKING',
+    href: '/hiking',
+    external: false,
+  },
   // {
-  //   title: 'Hikking',
-  //   href: '/hikking',
-  //   external: false,
-  // },
-  // {
-  //   title: 'Camping',
+  //   title: 'CAMPING',
   //   href: '/camping',
   //   external: false,
   // },
