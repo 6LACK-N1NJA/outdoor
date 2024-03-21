@@ -107,7 +107,7 @@ export async function getArticle(postslug) {
 
 export async function getArticles() {
   try {
-    const res = (await fetch(`${process.env.STRAPI}/articles`, { next: { revalidate: REVALIDATION_INTERVAL } })).json();
+    const res = (await fetch(`${process.env.STRAPI}/articles?populate=*`, { next: { revalidate: REVALIDATION_INTERVAL } })).json();
     return res;
   } catch {
     notFound()

@@ -19,7 +19,7 @@ export default async function Page() {
   const PageColumn = ({ children }) => <article className=' border-b-2 lg:border-b-0'>{children}</article>;
   const basicMapper = (href, as) => ({ attributes }) => {
     const topicSlug = `/${attributes.outdoor_activity_categories?.data[0]?.attributes.slug}/`;
-    console.log(attributes.outdoor_activity_categories)
+    console.log(attributes)
     return <li key={`complist_${attributes.slug}`}><Link href={href} as={`${as || topicSlug}${attributes.slug}`}>{`${attributes.title} ${attributes.emoji ? attributes.emoji: ''}`}</Link></li>
   }
   return (
