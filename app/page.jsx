@@ -10,12 +10,14 @@ import Link from 'next/link'
 import articleTypes from 'src/constants/articleTypes'
 import MainArticleCard from './[slug]/components/MainArticleCard'
 
+import DestinationArticleCard from '@component/DestinationArticleCard'
+
 export default async function Page() {
   const articles = await getArticles()
   const knowledgeArticles = articles.data?.filter(({ attributes }) => attributes.type === articleTypes.knowledge);
   const destinationArticles = articles.data?.filter(({ attributes }) => attributes.type === articleTypes.destination);
   const comperisons = await getComparisonConfingList();
-  const headerStyle = 'text-zinc-700 text-2xl'
+  const headerStyle = 'text-zinc-700 text-2xl text-emerald-900'
   const PageColumn = ({ children }) => <article className=' border-b-2 lg:border-b-0'>{children}</article>;
   const basicMapper = (href, as) => ({ attributes }) => {
     const topicSlug = `/${attributes.outdoor_activity_categories?.data[0]?.attributes.slug}/`;
@@ -35,8 +37,15 @@ export default async function Page() {
           </PageColumn>
           <PageColumn>
             <h2 className={`${headerStyle}`}>Destinations</h2>
-            {destinationArticles.map(basicMapper('/[slug]/[postslug]'))}
+            <ul className="space-y-4">
+              {destinationArticles.map(article => (
+                <li key={`destination_${article.attributes.slug}`}>
+                  <DestinationArticleCard article={article} />
+                </li>
+              ))}
+            </ul>
           </PageColumn>
+
           <PageColumn>
             <h2 className={`${headerStyle}`}>Gear Comparison</h2>
             <ul>
