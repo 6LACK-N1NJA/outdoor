@@ -105,14 +105,34 @@ export async function getArticle(postslug) {
   }
 }
 
+// export async function getArticles() {
+//   try {
+//     const res = (await fetch(`${process.env.STRAPI}/articles?populate=*`, { next: { revalidate: REVALIDATION_INTERVAL } })).json();
+//     return res;
+//   } catch {
+//     notFound()
+//   }
+// }
 export async function getArticles() {
   try {
-    const res = (await fetch(`${process.env.STRAPI}/articles?populate=*`, { next: { revalidate: REVALIDATION_INTERVAL } })).json();
-    return res;
-  } catch {
-    notFound()
+    // Fetch articles with await
+    const res = await fetch(`${process.env.STRAPI}/articles?populate=*`, {
+      next: { revalidate: REVALIDATION_INTERVAL },
+    });
+
+    // Check for fetch response status
+    if (!res.ok) throw new Error('Failed to fetch articles');
+
+    // Parse response as JSON
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    // Redirect to 404 or handle the error as needed
+    notFound();
   }
 }
+
+
 
 export async function getArticlesForSitemap() {
   try {
