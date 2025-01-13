@@ -51,7 +51,7 @@ export default async function Page({ params }) {
           <h1 className="mt-1">{blogData.title}</h1>
         </header>
         {articleElements[0]}
-        {!blogData.noCoverInText && (
+        {/* {!blogData.noCoverInText && (
                 <Image
                   src={blogData.cover.data.attributes.formats.medium.url}
                   width={blogData.cover.data.attributes.formats.medium.width}
@@ -59,7 +59,7 @@ export default async function Page({ params }) {
                   alt={blogData.seo[0]?.metaTitle}
                   title={blogData.seo[0]?.metaTitle}
                 />)
-          }
+          } */}
         {articleElements.slice(1)}
       </article>
     </>
